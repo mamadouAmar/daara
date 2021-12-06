@@ -14,11 +14,16 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,10 @@ import { MatSortModule } from '@angular/material/sort';
     LayoutModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
