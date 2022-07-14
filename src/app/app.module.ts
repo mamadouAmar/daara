@@ -18,12 +18,28 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { ListElevesComponent } from './components/eleve/list-eleves/list-eleves.component';
+import { AjoutEleveComponent } from './components/eleve/ajout-eleve/ajout-eleve.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ListEmployesComponent } from './components/employe/list-employes/list-employes.component';
+import { AjoutEmployeComponent } from './components/employe/ajout-employe/ajout-employe.component';
+import { AjoutDepenseComponent } from './components/depense/ajout-depense/ajout-depense.component';
+import { ListDepenseComponent } from './components/depense/list-depense/list-depense.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     SidebarComponent,
+    ListElevesComponent,
+    AjoutEleveComponent,
+    ListEmployesComponent,
+    AjoutEmployeComponent,
+    AjoutDepenseComponent,
+    ListDepenseComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +56,11 @@ import { MatListModule } from '@angular/material/list';
     MatSortModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
