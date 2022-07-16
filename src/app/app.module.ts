@@ -28,7 +28,7 @@ import { ListEmployesComponent } from './components/employe/list-employes/list-e
 import { AjoutEmployeComponent } from './components/employe/ajout-employe/ajout-employe.component';
 import { AjoutDepenseComponent } from './components/depense/ajout-depense/ajout-depense.component';
 import { ListDepenseComponent } from './components/depense/list-depense/list-depense.component';
-import { RouterModule, Routes } from '@angular/router';
+import { MatTabsModule } from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import { PageEleveComponent } from './components/eleve/page-eleve/page-eleve.component';
 import { PageEmployeComponent } from './components/employe/page-employe/page-employe.component';
@@ -74,7 +74,9 @@ import { PageBilanComponent } from './components/comptabilite/page-bilan/page-bi
     MatSelectModule,
     MatRadioModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTabsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
