@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +28,14 @@ import { ListEmployesComponent } from './components/employe/list-employes/list-e
 import { AjoutEmployeComponent } from './components/employe/ajout-employe/ajout-employe.component';
 import { AjoutDepenseComponent } from './components/depense/ajout-depense/ajout-depense.component';
 import { ListDepenseComponent } from './components/depense/list-depense/list-depense.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { PageEleveComponent } from './components/eleve/page-eleve/page-eleve.component';
+import { PageEmployeComponent } from './components/employe/page-employe/page-employe.component';
+import { PageDepenseComponent } from './components/depense/page-depense/page-depense.component';
+import { ConnexionComponent } from './components/connexion/connexion.component';
+import { PageBilanComponent } from './components/comptabilite/page-bilan/page-bilan.component';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +48,11 @@ import { ListDepenseComponent } from './components/depense/list-depense/list-dep
     AjoutEmployeComponent,
     AjoutDepenseComponent,
     ListDepenseComponent,
+    PageEleveComponent,
+    PageEmployeComponent,
+    PageDepenseComponent,
+    ConnexionComponent,
+    PageBilanComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +73,8 @@ import { ListDepenseComponent } from './components/depense/list-depense/list-dep
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

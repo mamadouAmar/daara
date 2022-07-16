@@ -4,14 +4,16 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
+    <mat-divider></mat-divider>
     <mat-nav-list>
-      <a mat-list-item href="/">Dashboard</a>
-      <a mat-list-item href="eleves/">Eleves</a>
-      <a mat-list-item href="employes/">Employes</a>
-      <a mat-list-item href="depenses/">Depense</a>
-      <a mat-list-item href="bilan/">Bilan</a>
+      <a mat-list-item routerLink="/">Dashboard</a>
+      <a mat-list-item routerLink="eleve/">Eleves</a>
+      <a mat-list-item routerLink="employe/">Employes</a>
+      <a mat-list-item routerLink="depense/">Depense</a>
+      <a mat-list-item routerLink="bilan/">Bilan</a>
     </mat-nav-list>
   </mat-sidenav>
+
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button
@@ -20,10 +22,10 @@
         mat-icon-button
         (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        <mat-icon aria-label="Side nav toggle icon">Menu</mat-icon>
       </button>
       <span>Daara Adja Bintou Thiaw</span>
     </mat-toolbar>
-    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
