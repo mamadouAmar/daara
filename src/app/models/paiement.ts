@@ -1,11 +1,11 @@
 export class Paiement {
 
     constructor(
-        private paiementId : Number,
-        private annee : Number,
-        private mois : Number,
-        private somme : Number,
-        private travailleur : Number
+        public paiementId : Number,
+        public annee : Number,
+        public mois : Number,
+        public somme : Number,
+        public travailleur : Number
     )
     {
 

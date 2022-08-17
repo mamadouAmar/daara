@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +35,9 @@ import { PageEmployeComponent } from './components/employe/page-employe/page-emp
 import { PageDepenseComponent } from './components/depense/page-depense/page-depense.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { PageBilanComponent } from './components/comptabilite/page-bilan/page-bilan.component';
+import { MensualiteComponent } from './comptabilite/mensualite/mensualite.component';
+import { InscriptionComponent } from './components/comptabilite/inscription/inscription.component';
+import { PaiementsComponent } from './components/comptabilite/paiements/paiements.component';
 
 
 @NgModule({
@@ -53,6 +56,9 @@ import { PageBilanComponent } from './components/comptabilite/page-bilan/page-bi
     PageDepenseComponent,
     ConnexionComponent,
     PageBilanComponent,
+    MensualiteComponent,
+    InscriptionComponent,
+    PaiementsComponent,
   ],
   imports: [
     BrowserModule,
