@@ -41,6 +41,7 @@ import { PayerEmployeComponent } from './components/employe/payer-employe/payer-
 import { ListClassesComponent } from './components/classes/list-classes/list-classes.component';
 import { MensualiteComponent } from './components/comptabilite/mensualite/mensualite.component';
 import { InscrireEleveComponent } from './components/eleve/inscrire-eleve/inscrire-eleve.component';
+import { ViewClasseComponent } from './components/classes/view-classe/view-classe.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { InscrireEleveComponent } from './components/eleve/inscrire-eleve/inscri
     PayerEmployeComponent,
     ListClassesComponent,
     InscrireEleveComponent,
+    ViewClasseComponent,
   ],
   imports: [
     BrowserModule,
