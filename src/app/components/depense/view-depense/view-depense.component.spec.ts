@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageEleveComponent } from './page-eleve.component';
+import { ViewDepenseComponent } from './view-depense.component';
 
-describe('PageEleveComponent', () => {
-  let component: PageEleveComponent;
-  let fixture: ComponentFixture<PageEleveComponent>;
+describe('ViewDepenseComponent', () => {
+  let component: ViewDepenseComponent;
+  let fixture: ComponentFixture<ViewDepenseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageEleveComponent ]
+      declarations: [ ViewDepenseComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageEleveComponent);
+    fixture = TestBed.createComponent(ViewDepenseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

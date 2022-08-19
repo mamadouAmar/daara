@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageDepenseComponent } from './page-depense.component';
+import { ListClassesComponent } from './list-classes.component';
 
-describe('PageDepenseComponent', () => {
-  let component: PageDepenseComponent;
-  let fixture: ComponentFixture<PageDepenseComponent>;
+describe('ListClassesComponent', () => {
+  let component: ListClassesComponent;
+  let fixture: ComponentFixture<ListClassesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageDepenseComponent ]
+      declarations: [ ListClassesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageDepenseComponent);
+    fixture = TestBed.createComponent(ListClassesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

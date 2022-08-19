@@ -19,7 +19,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ListElevesComponent } from './components/eleve/list-eleves/list-eleves.component';
-import { AjoutEleveComponent } from './components/eleve/ajout-eleve/ajout-eleve.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
@@ -30,14 +29,18 @@ import { AjoutDepenseComponent } from './components/depense/ajout-depense/ajout-
 import { ListDepenseComponent } from './components/depense/list-depense/list-depense.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
-import { PageEleveComponent } from './components/eleve/page-eleve/page-eleve.component';
-import { PageEmployeComponent } from './components/employe/page-employe/page-employe.component';
-import { PageDepenseComponent } from './components/depense/page-depense/page-depense.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { PageBilanComponent } from './components/comptabilite/page-bilan/page-bilan.component';
-import { MensualiteComponent } from './comptabilite/mensualite/mensualite.component';
 import { InscriptionComponent } from './components/comptabilite/inscription/inscription.component';
 import { PaiementsComponent } from './components/comptabilite/paiements/paiements.component';
+import { ViewDepenseComponent } from './components/depense/view-depense/view-depense.component';
+import { ViewEleveComponent } from './components/eleve/view-eleve/view-eleve.component';
+import { PayerMensualiteEleveComponent } from './components/eleve/payer-mensualite-eleve/payer-mensualite-eleve.component';
+import { ViewEmployeComponent } from './components/employe/view-employe/view-employe.component';
+import { PayerEmployeComponent } from './components/employe/payer-employe/payer-employe.component';
+import { ListClassesComponent } from './components/classes/list-classes/list-classes.component';
+import { MensualiteComponent } from './components/comptabilite/mensualite/mensualite.component';
+import { InscrireEleveComponent } from './components/eleve/inscrire-eleve/inscrire-eleve.component';
 
 
 @NgModule({
@@ -46,19 +49,22 @@ import { PaiementsComponent } from './components/comptabilite/paiements/paiement
     DashboardComponent,
     SidebarComponent,
     ListElevesComponent,
-    AjoutEleveComponent,
     ListEmployesComponent,
     AjoutEmployeComponent,
     AjoutDepenseComponent,
     ListDepenseComponent,
-    PageEleveComponent,
-    PageEmployeComponent,
-    PageDepenseComponent,
     ConnexionComponent,
     PageBilanComponent,
     MensualiteComponent,
     InscriptionComponent,
     PaiementsComponent,
+    ViewDepenseComponent,
+    ViewEleveComponent,
+    PayerMensualiteEleveComponent,
+    ViewEmployeComponent,
+    PayerEmployeComponent,
+    ListClassesComponent,
+    InscrireEleveComponent,
   ],
   imports: [
     BrowserModule,
