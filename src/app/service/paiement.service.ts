@@ -13,8 +13,23 @@ export class PaiementService {
 
   constructor(private http:HttpClient) { }
 
-  public getAll() : Observable<Paiement[]> {
-    return this.http.get<Paiement[]>(`${this.apiUrl}/paiement`);
+  public getPaiementByYear(
+    year : number = new Date().getFullYear()
+    ) : Observable<Paiement[]> 
+    {
+    return this.http
+      .get<Paiement[]>
+      (`${this.apiUrl}/paiement/${year}`);
+  }
+
+  public getPaiementByMonth(
+    year : number = new Date().getFullYear(),
+    month : number = new Date().getMonth()
+    ) : Observable<Paiement[]> 
+    {
+    return this.http
+      .get<Paiement[]>
+      (`${this.apiUrl}/paiement/${year}/${month}`);
   }
 
   public getOne(id : Number) : Observable<Paiement> {
@@ -25,7 +40,11 @@ export class PaiementService {
     return this.http.post<Paiement>(`${this.apiUrl}/paiement`, corps);
   }
 
-  public delete(id : Number) : Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/paiement/${id}`); 
+  public delete(
+    id : Number
+    ) : Observable<String> {
+    return this.http
+    .delete<String>
+    (`${this.apiUrl}/paiement/${id}`); 
   }
 }

@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { InscriptionComponent } from './components/comptabilite/inscription/inscription.component';
+import { MensualiteComponent } from './components/comptabilite/mensualite/mensualite.component';
 import { PageBilanComponent } from './components/comptabilite/page-bilan/page-bilan.component';
+import { PaiementsComponent } from './components/comptabilite/paiements/paiements.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AjoutDepenseComponent } from './components/depense/ajout-depense/ajout-depense.component';
@@ -33,13 +36,13 @@ const routes: Routes = [
     {path: 'payer-employe', component: PayerEmployeComponent}
   ]},
   {path: '', component: DashboardComponent},
-  {path: 'bilan', component:PageBilanComponent,
+  {path: 'bilan',
   children: [
-    {path:'mensualite'},
-    {path: 'inscription'},
-    {path: 'paiement'},
-    {path: 'depense', redirectTo:'/depense'},
-    {path: 'calcul'}
+    {path:'mensualite', component: MensualiteComponent},
+    {path: 'inscription', component: InscriptionComponent},
+    {path: 'paiement', component: PaiementsComponent},
+    {path: 'depense', component: ListDepenseComponent},
+    {path: '',  component:PageBilanComponent}
   ]},
   {path:'depense',
   children: [

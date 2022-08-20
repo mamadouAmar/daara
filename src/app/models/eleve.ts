@@ -1,18 +1,20 @@
 export class Eleve {
 
+    public eleveId! : Number; 
+    public prenom! : String;
+    public nom! : String; 
+    public prenomPere! : String;
+    public prenomNomMere! : String; 
+    public dateNaissance! : Date; 
+    public addresse! : String; 
+    public numeroTelephone! : String;
+    public dateDebut! : Date;
+    public classe! : Number;
+    public argentDePoche! : Number;
+    public aSavoir! : String;
+    
     constructor(
-        private eleveId : Number, 
-        private prenom : String,
-        private nom : String, 
-        private prenomPere : String,
-        private prenomNomMere : String, 
-        private dateNaissance : Date, 
-        private addresse : String, 
-        private numeroTelephone : String,
-        private dateDebut : Date,
-        private classe : Number,
-        private argentDePoche : Number,
-        private aSavoir : String
+        
     )
     {
 

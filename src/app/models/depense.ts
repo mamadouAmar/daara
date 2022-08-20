@@ -1,10 +1,14 @@
 export class Depense {
 
-    constructor(private depenseId : Number, 
-        private somme : Number,
-        private depense : String,
-        private dateDepense: Date)
-        {
+    public depenseId! : Number;
+    public somme! : Number;
+    public depense! : String;
+    public dateDepense!: Date;
 
-        }
+    constructor()
+    {
+
+    }
+
+
 }

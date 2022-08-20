@@ -5,6 +5,7 @@ export class Paiement {
     public mois! : Number;
     public somme! : Number;
     public travailleur! : Number;
+    
     constructor(
         
     )

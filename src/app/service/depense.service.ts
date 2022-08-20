@@ -13,19 +13,52 @@ export class DepenseService {
 
   constructor(private http:HttpClient) { }
 
-  public getAll() : Observable<Depense[]> {
-    return this.http.get<Depense[]>(`${this.apiUrl}/depense`);
+  // public getAll() : Observable<Depense[]> {
+  //   return this.http.get<Depense[]>(`${this.apiUrl}/depense`);
+  // }
+
+  public getDepenseByJour(date : Date) : Observable<Depense[]> {
+    return this.http.get<Depense[]>(`${this.apiUrl}/depense/jour/${date}`);
   }
 
-  public getOne(id : Number) : Observable<Depense> {
-    return this.http.get<Depense>(`${this.apiUrl}/depense/${id}`);
+  public getDepenseByMonth(
+    year : number = new Date().getFullYear(), 
+    month : number = new Date().getMonth()
+    ) : Observable<Depense[]> {
+    return this.http
+      .get<Depense[]>
+      (`${this.apiUrl}/depense/year/${year}/mois/${month}`
+      );
   }
 
-  public postOne(depense : Depense) : Observable<Depense> {
-    return this.http.post<Depense>(`${this.apiUrl}/depense`, depense);
+  public getDepenseByYear(
+    year : number = new Date().getFullYear(), 
+    ) : Observable<Depense[]> {
+    return this.http
+      .get<Depense[]>
+      (`${this.apiUrl}/depense/year/${year}`);
   }
 
-  public delete(id : Number) : Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/depense/${id}`); 
+  public getOne(
+    id : Number
+    ) : Observable<Depense> {
+    return this.http
+      .get<Depense>
+      (`${this.apiUrl}/depense/${id}`);
+  }
+
+  public postOne(
+    depense : Depense
+    ) : Observable<Depense> {
+    return this.http
+      .post<Depense>
+      (`${this.apiUrl}/depense`, depense);
+  }
+
+  public delete(
+    id : Number
+    ) : Observable<void> {
+    return this.http.delete<void>
+      (`${this.apiUrl}/depense/${id}`); 
   }
 }

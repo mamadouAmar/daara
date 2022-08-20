@@ -13,19 +13,11 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
 
-  public getAll() : Observable<Depense[]> {
-    return this.http.get<Depense[]>(`${this.apiUrl}/depense`);
+  public seConnecter(){
+
   }
 
-  public getOne(id : Number) : Observable<Depense> {
-    return this.http.get<Depense>(`${this.apiUrl}/depense/${id}`);
-  }
-
-  public postOne(depense : Depense) : Observable<Depense> {
-    return this.http.post<Depense>(`${this.apiUrl}/depense`, depense);
-  }
-
-  public delete(id : Number) : Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/depense/${id}`); 
+  public seDeconnecter(){
+    
   }
 }
