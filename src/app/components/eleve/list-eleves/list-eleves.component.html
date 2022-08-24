@@ -1,15 +1,18 @@
 <br>
 
 <div class="mat-elevation-z5">
-  <button mat-button>Inscrire</button>
-  <button mat-button>Payer mensualite</button>
+  <button mat-button (click)="clickOnInscrire()">Inscrire</button>
+  <button mat-button (click)="clickOnMensualite()">Payer mensualite</button>
 </div>
 
 <br>
 
-<div>
-  <input>
-</div>
+<form>
+  <mat-form-field>
+    <mat-label>Rechercher un élève</mat-label>
+    <input matInput>
+  </mat-form-field> 
+</form>
 
 <br>
 

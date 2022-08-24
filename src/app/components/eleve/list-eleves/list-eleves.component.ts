@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { Eleve } from 'src/app/models/eleve';
+import { EleveService } from 'src/app/service/eleve.service';
 import { ListElevesDataSource } from './list-eleves-datasource';
 
 @Component({
@@ -20,8 +21,8 @@ export class ListElevesComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['eleveId', 'nom', 'prenom', 'dateNaissance', 'classe', 'action'];
 
-  constructor() {
-    this.dataSource = new ListElevesDataSource();
+  constructor(private eleveService : EleveService) {
+    this.dataSource = new ListElevesDataSource(eleveService);
   }
 
   ngAfterViewInit(): void {

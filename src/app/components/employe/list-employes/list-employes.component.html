@@ -1,17 +1,19 @@
 <br>
 
-<div>
-  <button mat-button>ajouter nouvel employe</button>
-  <button mat-button>payer employe</button>
-  <button mat-button>paiements</button>
-</div>
+<section>
+  <button mat-button (click)="onClickAjouterEmploye()">ajouter nouvel employe</button>
+  <button mat-button (click)="onClickPayerEmploye()">payer employe</button>
+  <button mat-button (click)="onClickPaiement()">paiements</button>
+</section>
 
 <br>
 
-<div>
-  <mat-label>Rechercher un employe</mat-label>
-  <input>
-</div>
+<form>
+  <mat-form-field>
+    <mat-label>Rechercher un employe</mat-label>
+    <input matInput>
+  </mat-form-field> 
+</form>
 
 <br>
 

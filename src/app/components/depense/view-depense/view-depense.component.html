@@ -1,1 +1,11 @@
-<p>view-depense works!</p>
+<h3 mat-dialog-title>Info depense</h3>
+<mat-dialog-content>
+    <div>{{depense.dateDepense}}</div>
+    <div>{{depense.somme}}</div>
+    <textarea>{{depense.depense}}</textarea>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>retour</button>
+    <button mat-button>modifier</button>
+    <button mat-button>supprimer</button>
+</mat-dialog-actions>

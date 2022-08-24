@@ -42,6 +42,7 @@ import { ListClassesComponent } from './components/classes/list-classes/list-cla
 import { MensualiteComponent } from './components/comptabilite/mensualite/mensualite.component';
 import { InscrireEleveComponent } from './components/eleve/inscrire-eleve/inscrire-eleve.component';
 import { ViewClasseComponent } from './components/classes/view-classe/view-classe.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -90,7 +91,8 @@ import { ViewClasseComponent } from './components/classes/view-classe/view-class
     ReactiveFormsModule,
     HttpClientModule,
     MatTabsModule,
-    MatButtonModule
+    MatButtonModule, 
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

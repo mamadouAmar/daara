@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Depense } from 'src/app/models/depense';
 
 @Component({
   selector: 'app-view-depense',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-depense.component.css']
 })
 export class ViewDepenseComponent implements OnInit {
+
+  depense! : Depense;
 
   constructor() { }
 

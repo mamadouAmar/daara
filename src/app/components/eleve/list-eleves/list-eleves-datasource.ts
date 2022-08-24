@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { Eleve } from 'src/app/models/eleve';
+import { EleveService } from 'src/app/service/eleve.service';
 
 // TODO: Replace this with your own data model type
 // export interface ListElevesItem {
@@ -45,8 +46,13 @@ export class ListElevesDataSource extends DataSource<Eleve> {
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 
-  constructor() {
+  constructor(private eleveService : EleveService) {
     super();
+    eleveService.getAll().subscribe(
+      (eleves) => {
+        this.data = eleves;
+      }
+    );
   }
 
   /**
