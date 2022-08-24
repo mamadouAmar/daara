@@ -1,14 +1,14 @@
 export class Employe {
 
-    private interneId! : Number;
-    private prenom! : String;
-    private nom! : String;
-    private numeroTelephone! : String;
-    private dateNaissance! : Date;
-    private dateDebut! : Date;
-    private profession! : String;
-    private salaire! : Number;
-    private classeGeree! : Number;
+    public interneId! : Number;
+    public prenom! : String;
+    public nom! : String;
+    public numeroTelephone! : String;
+    public dateNaissance! : Date;
+    public dateDebut! : Date;
+    public profession! : String;
+    public salaire! : Number;
+    public classeGeree! : Number;
 
     constructor(
         

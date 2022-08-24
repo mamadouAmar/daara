@@ -1,15 +1,54 @@
-<div class="mat-elevation-z8">
+<br>
+
+<div>
+  <button mat-button>ajouter nouvel employe</button>
+  <button mat-button>payer employe</button>
+  <button mat-button>paiements</button>
+</div>
+
+<br>
+
+<div>
+  <mat-label>Rechercher un employe</mat-label>
+  <input>
+</div>
+
+<br>
+
+<div class="mat-elevation-z5">
   <table mat-table class="full-width-table" matSort aria-label="Elements">
     <!-- Id Column -->
-    <ng-container matColumnDef="id">
+    <ng-container matColumnDef="interneId">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+      <td mat-cell *matCellDef="let row">{{row.interneId}}</td>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>nom</th>
+      <td mat-cell *matCellDef="let row">{{row.nom}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="prenom">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>prenom</th>
+      <td mat-cell *matCellDef="let row">{{row.prenom}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateDebut">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>date debut</th>
+      <td mat-cell *matCellDef="let row">{{row.dateDebut}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="profession">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>profession</th>
+      <td mat-cell *matCellDef="let row">{{row.profession}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>actions</th>
+      <td mat-cell *matCellDef="let row">
+
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

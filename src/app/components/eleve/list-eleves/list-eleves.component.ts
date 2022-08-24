@@ -2,7 +2,8 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
-import { ListElevesDataSource, ListElevesItem } from './list-eleves-datasource';
+import { Eleve } from 'src/app/models/eleve';
+import { ListElevesDataSource } from './list-eleves-datasource';
 
 @Component({
   selector: 'app-list-eleves',
@@ -10,13 +11,14 @@ import { ListElevesDataSource, ListElevesItem } from './list-eleves-datasource';
   styleUrls: ['./list-eleves.component.css']
 })
 export class ListElevesComponent implements AfterViewInit {
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<ListElevesItem>;
+  @ViewChild(MatTable) table!: MatTable<Eleve>;
   dataSource: ListElevesDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['eleveId', 'nom', 'prenom', 'dateNaissance', 'classe', 'action'];
 
   constructor() {
     this.dataSource = new ListElevesDataSource();
@@ -26,5 +28,21 @@ export class ListElevesComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
+  }
+
+  afficherInfosEleve(){
+
+  }
+
+  clickOnMensualite(){
+
+  }
+
+  rechercherEleve(){
+
+  }
+
+  clickOnInscrire(){
+
   }
 }

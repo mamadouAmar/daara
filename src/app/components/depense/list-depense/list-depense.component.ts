@@ -2,7 +2,8 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
-import { ListDepenseDataSource, ListDepenseItem } from './list-depense-datasource';
+import { Depense } from 'src/app/models/depense';
+import { ListDepenseDataSource } from './list-depense-datasource';
 
 @Component({
   selector: 'app-list-depense',
@@ -12,11 +13,11 @@ import { ListDepenseDataSource, ListDepenseItem } from './list-depense-datasourc
 export class ListDepenseComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<ListDepenseItem>;
+  @ViewChild(MatTable) table!: MatTable<Depense>;
   dataSource: ListDepenseDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['depenseId', 'dateDepense', 'somme', 'depense', 'action'];
 
   constructor() {
     this.dataSource = new ListDepenseDataSource();
@@ -26,5 +27,21 @@ export class ListDepenseComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
+  }
+
+  onClickAjouterDepense(){
+
+  }
+
+  onClickOnModifier(){
+
+  }
+
+  onClickOnSupprimer(){
+
+  }
+
+  onClickOnPlus(){
+    
   }
 }
