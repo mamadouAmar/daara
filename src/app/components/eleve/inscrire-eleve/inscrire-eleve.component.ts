@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { Eleve } from 'src/app/models/eleve';
 import { Inscription } from 'src/app/models/inscription';
@@ -48,13 +48,13 @@ export class InscrireEleveComponent implements OnInit {
   nouvelEleve! : Eleve;
   inscription! : Inscription;
 
-  inscriptionFormGroup! : FormGroup;
+  inscriptionFormGroup! : UntypedFormGroup;
 
 
 
   constructor(
     private eleveService : EleveService,
-    private fb : FormBuilder
+    private fb : UntypedFormBuilder
     ) { }
 
   ngOnInit(): void {
@@ -69,7 +69,7 @@ export class InscrireEleveComponent implements OnInit {
         aSavoir : this.fb.control('', [Validators.required]),
         dateDebut : this.fb.control(''),
         classe : this.fb.control(''),
-        anneeInscription : this.fb.control(new FormControl(moment()), [Validators.required]), 
+        anneeInscription : this.fb.control(new UntypedFormControl(moment()), [Validators.required]), 
         somme : this.fb.control(''),
       }
     );
