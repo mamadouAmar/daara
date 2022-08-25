@@ -42,7 +42,7 @@ import { EleveService } from 'src/app/service/eleve.service';
  * (including sorting, pagination, and filtering).
  */
 export class ListElevesDataSource extends DataSource<Eleve> {
-  data!: Eleve[];
+  data: Eleve[] = [];
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 
@@ -61,10 +61,18 @@ export class ListElevesDataSource extends DataSource<Eleve> {
    * @returns A stream of the items to be rendered.
    */
   connect(): Observable<Eleve[]> {
+
     if (this.paginator && this.sort) {
       // Combine everything that affects the rendered data into one update
       // stream for the data-table to consume.
-      return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange)
+      // return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange)
+      //   .pipe(map(() => {
+      //     return this.getPagedData(this.getSortedData([...this.data ]));
+      //   }));
+      return merge(
+        observableOf(this.data), 
+        this.paginator.page, 
+        this.sort.sortChange)
         .pipe(map(() => {
           return this.getPagedData(this.getSortedData([...this.data ]));
         }));

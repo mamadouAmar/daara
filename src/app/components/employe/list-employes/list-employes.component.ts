@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { Employe } from 'src/app/models/employe';
+import { EmployeService } from 'src/app/service/employe.service';
 import { ListEmployesDataSource } from './list-employes-datasource';
 
 @Component({
@@ -19,8 +20,8 @@ export class ListEmployesComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['interneId', 'nom', 'prenom', 'dateDebut', 'profession', 'actions'];
 
-  constructor() {
-    this.dataSource = new ListEmployesDataSource();
+  constructor(private employeService : EmployeService) {
+    this.dataSource = new ListEmployesDataSource(employeService);
   }
 
   ngAfterViewInit(): void {

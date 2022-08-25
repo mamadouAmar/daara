@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { Depense } from 'src/app/models/depense';
+import { DepenseService } from 'src/app/service/depense.service';
 import { ListDepenseDataSource } from './list-depense-datasource';
 
 @Component({
@@ -19,8 +20,8 @@ export class ListDepenseComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['depenseId', 'dateDepense', 'somme', 'depense', 'action'];
 
-  constructor() {
-    this.dataSource = new ListDepenseDataSource();
+  constructor(private depenseService : DepenseService) {
+    this.dataSource = new ListDepenseDataSource(depenseService);
   }
 
   ngAfterViewInit(): void {

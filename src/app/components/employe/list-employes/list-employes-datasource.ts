@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { Employe } from 'src/app/models/employe';
+import { EmployeService } from 'src/app/service/employe.service';
 
 // TODO: Replace this with your own data model type
 // export interface ListEmployesItem {
@@ -45,8 +46,14 @@ export class ListEmployesDataSource extends DataSource<Employe> {
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 
-  constructor() {
+  constructor(employeService : EmployeService) {
     super();
+    employeService.getAll()
+    .subscribe(
+      (employes) => {
+        this.data = employes;
+      }
+    )
   }
 
   /**

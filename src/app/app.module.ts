@@ -43,6 +43,8 @@ import { MensualiteComponent } from './components/comptabilite/mensualite/mensua
 import { InscrireEleveComponent } from './components/eleve/inscrire-eleve/inscrire-eleve.component';
 import { ViewClasseComponent } from './components/classes/view-classe/view-classe.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 
 @NgModule({
@@ -92,7 +94,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     HttpClientModule,
     MatTabsModule,
     MatButtonModule, 
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

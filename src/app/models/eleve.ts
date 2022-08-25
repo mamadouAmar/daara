@@ -9,7 +9,7 @@ export class Eleve {
     public addresse! : String; 
     public numeroTelephone! : String;
     public dateDebut! : Date;
-    public classe! : Number;
+    public classe! : String;
     public argentDePoche! : Number;
     public aSavoir! : String;
     

@@ -1,11 +1,13 @@
+import { Eleve } from "./eleve";
+
 export class Inscription {
     
-    private inscriptionId! : Number;
-    private dateInscription! : Date;
-    private anneeInscription! : Number;
-    private classe! : Number;
-    private eleveInscrit! : Number;
-    private somme! : Number;
+    inscriptionId! : Number;
+    dateInscription! : Date;
+    anneeInscription! : Number;
+    classe! : String;
+    eleveInscrit! : Eleve;
+    somme! : Number;
 
     constructor(
         
