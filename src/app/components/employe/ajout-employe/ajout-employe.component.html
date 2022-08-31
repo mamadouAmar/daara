@@ -1,100 +1,118 @@
+<div >
+  <button class="m-3" mat-mini-fab (click)="this.retour()">
+      <mat-icon>arrow_back</mat-icon>
+  </button>
+</div>
 <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card">
     <mat-card-header>
-      <mat-card-title>Shipping Information</mat-card-title>
+      <mat-card-title>Ajouter un(e) nouvel(le) emloyé(e)</mat-card-title>
     </mat-card-header>
     <mat-card-content>
+      
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Company" formControlName="company">
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput placeholder="First name" formControlName="firstName">
-            <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
-              First name is <strong>required</strong>
+            <input matInput placeholder="prenom" formControlName="prenom">
+            <mat-error *ngIf="addressForm.controls['prenom'].hasError('required')">
+              Le prenom name est <strong>requis</strong>
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Last name" formControlName="lastName">
-            <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
-              Last name is <strong>required</strong>
+            <input matInput placeholder="nom" formControlName="nom">
+            <mat-error *ngIf="addressForm.controls['nom'].hasError('required')">
+              Le nom est <strong>requis</strong>
             </mat-error>
           </mat-form-field>
         </div>
       </div>
+
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <textarea matInput placeholder="Address" formControlName="address"></textarea>
-            <mat-error *ngIf="addressForm.controls['address'].hasError('required')">
-              Address is <strong>required</strong>
+            <input matInput placeholder="adresse" formControlName="adresse" />
+            <mat-error *ngIf="addressForm.controls['adresse'].hasError('required')">
+              L'adresse est <strong>requise</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="numero de telephone" formControlName="numeroTelephone" />
+            <mat-error *ngIf="addressForm.controls['numeroTelephone'].hasError('required')">
+              Le numéro de téléphone est <strong>requis</strong>
             </mat-error>
           </mat-form-field>
         </div>
       </div>
-      <div class="row" *ngIf="!hasUnitNumber">
-        <div class="col">
-          <button mat-button type="button" (click)="hasUnitNumber = !hasUnitNumber">
-            + Add C/O, Apt, Suite, Unit
-          </button>
-        </div>
-      </div>
-      <div class="row" *ngIf="hasUnitNumber">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <textarea matInput placeholder="Address 2" formControlName="address2"></textarea>
-          </mat-form-field>
-        </div>
-      </div>
+
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="City" formControlName="city">
-            <mat-error *ngIf="addressForm.controls['city'].hasError('required')">
-              City is <strong>required</strong>
+            <mat-label>date de naissance</mat-label>
+            <input matInput [max]="maxDate" [matDatepicker]="naissancePicker" placeholder="date de naissance" formControlName="dateNaissance" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="naissancePicker"></mat-datepicker-toggle>
+            <mat-datepicker #naissancePicker></mat-datepicker>
+            <mat-error *ngIf="addressForm.controls['dateNaissance'].hasError('required')">
+              La date de naissance est <strong>requise</strong>
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field class="full-width">
-            <mat-select placeholder="State" formControlName="state">
-              <mat-option *ngFor="let state of states" [value]="state.abbreviation">
-                {{ state.name }}
+            <mat-label>date de debut</mat-label>
+            <input matInput [matDatepicker]="datedebutPicker" placeholder="date de debut" formControlName="dateDebut" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="datedebutPicker"></mat-datepicker-toggle>
+            <mat-datepicker #datedebutPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="half-width">
+            <input type="number" matInput placeholder="salaire" formControlName="salaire" />
+            <mat-error *ngIf="addressForm.controls['salaire'].hasError('required')">
+              Le salaire est <strong>requis</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <!-- <input matInput placeholder="profession" formControlName="profession" /> -->
+            <mat-label>profession</mat-label>
+            <mat-select formControlName="profession">
+              <mat-option *ngFor="let profession of professions" [value]="profession">
+                {{ profession.valueOf() }}
               </mat-option>
             </mat-select>
-            <mat-error *ngIf="addressForm.controls['state'].hasError('required')">
-              State is <strong>required</strong>
-            </mat-error>
           </mat-form-field>
         </div>
-      </div>
-      <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput #postalCode maxlength="5" placeholder="Postal Code" type="number" formControlName="postalCode">
-            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+            <!-- <input matInput placeholder="classe" formControlName="classeGeree" /> -->
+            <mat-label>classe geree</mat-label>
+            <mat-select formControlName="classeGeree">
+              <mat-option *ngFor="let classe of classes" [value]="classe.appelation">
+                {{ classe.appelation.valueOf() }}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <mat-radio-group formControlName="shipping">
-            <mat-radio-button value="free">Free Shipping</mat-radio-button>
-            <mat-radio-button value="priority">Priority Shipping</mat-radio-button>
-            <mat-radio-button value="nextday">Next Day Shipping</mat-radio-button>
-          </mat-radio-group>
-        </div>
-      </div>
+
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button mat-raised-button color="primary" type="submit">ajouter employe</button>
+      <button mat-raised-button color="" (click)="reset()" >reset</button>
+      <button mat-raised-button color="" (click)="retour()">reset</button>
     </mat-card-actions>
   </mat-card>
 </form>

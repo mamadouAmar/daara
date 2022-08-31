@@ -1,5 +1,10 @@
 <mat-card>
-    <form [formGroup]="inscriptionFormGroup" (ngSubmit)="inscrireEleve()">
+    <div class="m-3">
+        <button class="" mat-mini-fab (click)="this.retour()">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+    </div>
+    <form [formGroup]="inscriptionFormGroup" (ngSubmit)="this.inscrireEleve()">
         <div>
             <mat-form-field>
                 <mat-label>nom</mat-label>
@@ -42,6 +47,20 @@
                             (yearSelected)="setYear($event,yearPicker)">
                 </mat-datepicker>
             </mat-form-field>
+            <mat-form-field>
+                <mat-label>classe</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let classe of classes"
+                    [value]="classe.classeId">
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>somme</mat-label>
+                <input matInput type="number" formControlName="somme">
+            </mat-form-field>
         </div>
+        <button mat-button [disabled]="this.inscriptionFormGroup.valid" (click)="inscrireEleve()" type="submit">inscrire nouvel eleve</button>
+        <button mat-button (click)="this.reset" type="reset">annuler</button>
     </form>
 </mat-card>

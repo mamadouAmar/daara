@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EleveService } from 'src/app/service/eleve.service';
 
 @Component({
   selector: 'app-payer-mensualite-eleve',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PayerMensualiteEleveComponent implements OnInit {
 
-  constructor() { }
+  constructor(private eleveService : EleveService) { }
 
   ngOnInit(): void {
+  }
+
+  payerMensualite(){
+
   }
 
 }

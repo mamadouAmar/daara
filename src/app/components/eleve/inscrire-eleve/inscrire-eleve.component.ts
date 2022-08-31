@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { Eleve } from 'src/app/models/eleve';
 import { Inscription } from 'src/app/models/inscription';
 import { EleveService } from 'src/app/service/eleve.service';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { MatDatepicker } from '@angular/material/datepicker';
+import { Niveau } from 'src/app/models/niveau'
 
 import * as _moment from 'moment';
 // tslint:disable-next-line:no-duplicate-imports
@@ -23,8 +24,8 @@ export const YEAR_FORMAT = {
   },
   display : {
     dateInput: 'YYYY',
-    // monthYearLabel: 'YYYY',
-    // monthYearA11yLabel: 'YYYY',
+    monthYearLabel: 'YYYY',
+    monthYearA11yLabel: 'YYYY',
   }
 }
 
@@ -48,6 +49,8 @@ export class InscrireEleveComponent implements OnInit {
   nouvelEleve! : Eleve;
   inscription! : Inscription;
 
+  classes! : Niveau[];
+
   inscriptionFormGroup! : UntypedFormGroup;
 
 
@@ -69,16 +72,18 @@ export class InscrireEleveComponent implements OnInit {
         aSavoir : this.fb.control('', [Validators.required]),
         dateDebut : this.fb.control(''),
         classe : this.fb.control(''),
-        anneeInscription : this.fb.control(new UntypedFormControl(moment()), [Validators.required]), 
+        anneeInscription : this.fb.control('', [Validators.required]), 
         somme : this.fb.control(''),
       }
     );
   }
 
+
+
   setYear(normalizedYear :Moment, datepicker: MatDatepicker<Moment>){
-    let ctrlValue = this.inscriptionFormGroup.controls['anneeInscription'].value!;
-    ctrlValue = normalizedYear.year()
-    this.inscriptionFormGroup.controls['anneeInscription'].setValue(ctrlValue);
+    // this.inscriptionFormGroup.controls['anneeInscription'].set;
+    // ctrlValue = normalizedYear.year()
+    this.inscriptionFormGroup.controls['anneeInscription'].setValue(normalizedYear.year().toString());
     datepicker.close()
   }
 
