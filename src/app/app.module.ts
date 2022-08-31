@@ -96,6 +96,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatButtonModule, 
     MatDialogModule,
     MatDatepickerModule,
+    MatMomentDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

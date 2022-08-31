@@ -32,8 +32,8 @@ const routes: Routes = [
   children : [
     {path: '', component: ListEmployesComponent},
     {path: 'nouvel-employe', component: AjoutEmployeComponent},
+    {path: 'payer-employe', component: PayerEmployeComponent},
     {path: ':id', component: ViewEmployeComponent},
-    {path: 'payer-employe', component: PayerEmployeComponent}
   ]},
   {path: '', component: DashboardComponent},
   {path: 'bilan',
