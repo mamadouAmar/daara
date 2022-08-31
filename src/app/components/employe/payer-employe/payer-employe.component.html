@@ -1,5 +1,66 @@
-<form>
-    <mat-card>
-        
+<form [formGroup]="paiementEmployeForm" (ngSubmit)="payerEmploye()">
+    <mat-card class="">
+        <mat-card-header>
+            <mat-card-title>Payer un employe</mat-card-title>
+        </mat-card-header>
+            
+        <mat-card-content>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>employe</mat-label>
+                        <mat-select formControlName="eleve">
+                            <mat-option *ngFor="let employe of employesEnActivites" [value]="employe">
+                                {{ employe.prenom }} {{" "}} {{ employe.nom }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>salaire</mat-label>
+                        <input type="number" matInput formControlName="somme">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Month and Year</mat-label>
+                        <input matInput [matDatepicker]="dp" formControlName="moisAnnee">
+                        <mat-hint>MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                        <mat-datepicker #dp
+                                        startView="multi-year"
+                                        (monthSelected)="setMonthAndYear($event, dp)"
+                                        panelClass="example-month-picker">
+                        </mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>date de paiment</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="datePaiment" [disabled]="disabled">
+                        <mat-hint>MM/DD/YYYY HH:MM:SS</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>other</mat-label>
+                        <input type="text" matInput formControlName="others">
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit" (click)="payerEmploye()">payer employe</button>
+            <button mat-raised-button color="" (click)="reset()" >reset</button>
+            <button mat-raised-button color="" (click)="retour()">reset</button>
+          </mat-card-actions>
     </mat-card>
 </form>
+
