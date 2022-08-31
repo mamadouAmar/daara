@@ -17,7 +17,6 @@ export class AjoutEmployeComponent {
   classes! : Niveau[];
 
   addressForm = this.fb.group({
-    company: null,
     prenom: [null, Validators.required],
     nom: [null, Validators.required],
     adresse: [null, Validators.required],
