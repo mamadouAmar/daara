@@ -7,7 +7,7 @@
         <mat-card-content>
             <div class="row">
                 <div class="col">
-                    <mat-form-field>
+                    <mat-form-field class="full-width">
                         <mat-label>employe</mat-label>
                         <mat-select formControlName="eleve">
                             <mat-option *ngFor="let employe of employesEnActivites" [value]="employe">
@@ -17,7 +17,7 @@
                     </mat-form-field>
                 </div>
                 <div class="col">
-                    <mat-form-field>
+                    <mat-form-field class="full-width">
                         <mat-label>salaire</mat-label>
                         <input type="number" matInput formControlName="somme">
                     </mat-form-field>
@@ -25,7 +25,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <mat-form-field appearance="fill">
+                    <mat-form-field appearance="fill" class="full-width">
                         <mat-label>Month and Year</mat-label>
                         <input matInput [matDatepicker]="dp" formControlName="moisAnnee">
                         <mat-hint>MM/YYYY</mat-hint>
@@ -38,7 +38,7 @@
                     </mat-form-field>
                 </div>
                 <div class="col">
-                    <mat-form-field>
+                    <mat-form-field class="full-width">
                         <mat-label>date de paiment</mat-label>
                         <input matInput [matDatepicker]="picker" formControlName="datePaiment" [disabled]="disabled">
                         <mat-hint>MM/DD/YYYY HH:MM:SS</mat-hint>
@@ -49,7 +49,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <mat-form-field>
+                    <mat-form-field class="half-width">
                         <mat-label>other</mat-label>
                         <input type="text" matInput formControlName="others">
                     </mat-form-field>
