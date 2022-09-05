@@ -1,5 +1,7 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-ajout-depense',
@@ -8,7 +10,7 @@ import { UntypedFormBuilder, Validators } from '@angular/forms';
 })
 export class AjoutDepenseComponent {
   
-  addressForm = this.fb.group({
+  ajoutDepenseForm = this.fb.group({
     depense: [null, Validators.required],
     somme: [null, Validators.required],
     dateDepese: [null, Validators.required],
@@ -16,9 +18,20 @@ export class AjoutDepenseComponent {
 
   
 
-  constructor(private fb: UntypedFormBuilder) {}
+  constructor(private fb: UntypedFormBuilder,
+      private route : ActivatedRoute,
+      private router : Router,
+      private location : Location) {}
 
-  onSubmit(): void {
-    alert('Thanks!');
+  ajouterDepense(){
+    
+  }
+
+  retour(){
+    this.location.back();
+  }
+
+  reset(){
+
   }
 }

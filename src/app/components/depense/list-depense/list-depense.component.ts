@@ -1,7 +1,9 @@
+import { Location } from '@angular/common';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Depense } from 'src/app/models/depense';
 import { DepenseService } from 'src/app/service/depense.service';
 import { ListDepenseDataSource } from './list-depense-datasource';
@@ -20,7 +22,10 @@ export class ListDepenseComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['depenseId', 'dateDepense', 'somme', 'depense', 'action'];
 
-  constructor(private depenseService : DepenseService) {
+  constructor(private depenseService : DepenseService,
+      private route : ActivatedRoute,
+      private router : Router,
+      private location : Location) {
     this.dataSource = new ListDepenseDataSource(depenseService);
   }
 
@@ -31,7 +36,7 @@ export class ListDepenseComponent implements AfterViewInit {
   }
 
   onClickAjouterDepense(){
-
+    this.router.navigate(['ajout-edit'], {relativeTo : this.route})
   }
 
   onClickOnModifier(){

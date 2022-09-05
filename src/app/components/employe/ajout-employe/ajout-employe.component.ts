@@ -1,5 +1,7 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Niveau } from 'src/app/models/niveau';
 
 @Component({
@@ -16,7 +18,7 @@ export class AjoutEmployeComponent {
 
   classes! : Niveau[];
 
-  addressForm = this.fb.group({
+  ajouterEmployeForm = this.fb.group({
     prenom: [null, Validators.required],
     nom: [null, Validators.required],
     adresse: [null, Validators.required],
@@ -30,18 +32,21 @@ export class AjoutEmployeComponent {
 
 
   retour(){
-    
+    this.location.back();
   }
 
   reset(){
-
+    this.ajouterEmployeForm.reset();
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+      private route : ActivatedRoute,
+      private router : Router,
+      private location : Location) {
 
   }
 
   onSubmit(): void {
-    alert('Thanks!');
+    console.log("Done")
   }
 }

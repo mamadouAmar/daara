@@ -3,7 +3,6 @@
         <mat-card-header>
             <mat-card-title>Payer une mensualite</mat-card-title>
         </mat-card-header>
-            
         <mat-card-content>
             <div class="row">
                 <div class="col">
@@ -40,7 +39,7 @@
                 <div class="col">
                     <mat-form-field>
                         <mat-label>date de paiment</mat-label>
-                        <input matInput [matDatepicker]="picker" formControlName="datePaiment" [disabled]="disabled">
+                        <input matInput [matDatepicker]="picker" formControlName="datePaiement" [disabled]="disabled">
                         <mat-hint>MM/DD/YYYY HH:MM:SS</mat-hint>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>

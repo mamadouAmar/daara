@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { Eleve } from 'src/app/models/eleve';
 import { Inscription } from 'src/app/models/inscription';
@@ -8,10 +8,13 @@ import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter } from '@angular/mat
 import { MatDatepicker } from '@angular/material/datepicker';
 import { Niveau } from 'src/app/models/niveau'
 
+
 import * as _moment from 'moment';
 // tslint:disable-next-line:no-duplicate-imports
 // import {_rollupMoment, Moment} from 'moment';
 import { Moment} from 'moment';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 
 // const moment = _rollupMoment || _moment;
@@ -51,13 +54,16 @@ export class InscrireEleveComponent implements OnInit {
 
   classes! : Niveau[];
 
-  inscriptionFormGroup! : UntypedFormGroup;
+  inscriptionFormGroup! : FormGroup;
 
 
 
   constructor(
     private eleveService : EleveService,
-    private fb : UntypedFormBuilder
+    private fb : FormBuilder,
+    private route : ActivatedRoute,
+    private location : Location,
+    private router : Router
     ) { }
 
   ngOnInit(): void {
@@ -92,10 +98,10 @@ export class InscrireEleveComponent implements OnInit {
   }
 
   retour(){
-
+    this.location.back();
   }
 
   reset(){
-
+    this.inscriptionFormGroup.reset()
   }
 }

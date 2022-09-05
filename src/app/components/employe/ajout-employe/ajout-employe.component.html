@@ -3,7 +3,7 @@
       <mat-icon>arrow_back</mat-icon>
   </button>
 </div> -->
-<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+<form [formGroup]="ajouterEmployeForm" novalidate (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card">
     <mat-card-header>
       <mat-card-title>Ajouter un(e) nouvel(le) emloyé(e)</mat-card-title>
@@ -14,7 +14,7 @@
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="prenom" formControlName="prenom">
-            <mat-error *ngIf="addressForm.controls['prenom'].hasError('required')">
+            <mat-error *ngIf="ajouterEmployeForm.controls['prenom'].hasError('required')">
               Le prenom name est <strong>requis</strong>
             </mat-error>
           </mat-form-field>
@@ -22,7 +22,7 @@
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="nom" formControlName="nom">
-            <mat-error *ngIf="addressForm.controls['nom'].hasError('required')">
+            <mat-error *ngIf="ajouterEmployeForm.controls['nom'].hasError('required')">
               Le nom est <strong>requis</strong>
             </mat-error>
           </mat-form-field>
@@ -33,7 +33,7 @@
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="adresse" formControlName="adresse" />
-            <mat-error *ngIf="addressForm.controls['adresse'].hasError('required')">
+            <mat-error *ngIf="ajouterEmployeForm.controls['adresse'].hasError('required')">
               L'adresse est <strong>requise</strong>
             </mat-error>
           </mat-form-field>
@@ -41,7 +41,7 @@
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="numero de telephone" formControlName="numeroTelephone" />
-            <mat-error *ngIf="addressForm.controls['numeroTelephone'].hasError('required')">
+            <mat-error *ngIf="ajouterEmployeForm.controls['numeroTelephone'].hasError('required')">
               Le numéro de téléphone est <strong>requis</strong>
             </mat-error>
           </mat-form-field>
@@ -56,7 +56,7 @@
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matSuffix [for]="naissancePicker"></mat-datepicker-toggle>
             <mat-datepicker #naissancePicker></mat-datepicker>
-            <mat-error *ngIf="addressForm.controls['dateNaissance'].hasError('required')">
+            <mat-error *ngIf="ajouterEmployeForm.controls['dateNaissance'].hasError('required')">
               La date de naissance est <strong>requise</strong>
             </mat-error>
           </mat-form-field>
@@ -76,7 +76,7 @@
         <div class="col">
           <mat-form-field class="half-width">
             <input type="number" matInput placeholder="salaire" formControlName="salaire" />
-            <mat-error *ngIf="addressForm.controls['salaire'].hasError('required')">
+            <mat-error *ngIf="ajouterEmployeForm.controls['salaire'].hasError('required')">
               Le salaire est <strong>requis</strong>
             </mat-error>
           </mat-form-field>
@@ -112,7 +112,7 @@
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit">ajouter employe</button>
       <button mat-raised-button color="" (click)="reset()" >reset</button>
-      <button mat-raised-button color="" (click)="retour()">reset</button>
+      <button mat-raised-button color="" (click)="retour()">retour</button>
     </mat-card-actions>
   </mat-card>
 </form>

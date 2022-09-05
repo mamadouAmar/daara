@@ -9,6 +9,8 @@ import { MatDatepicker } from '@angular/material/datepicker';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmployeService } from 'src/app/service/employe.service';
 import { Employe } from 'src/app/models/employe';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 const moment =  _moment;
 
@@ -51,7 +53,10 @@ export class PayerEmployeComponent implements OnInit {
   employesEnActivites! : Employe[];
 
   constructor(private employeService : EmployeService,
-      private fb : FormBuilder) {
+      private fb : FormBuilder,
+      private route : ActivatedRoute,
+      private router : Router,
+      private location : Location) {
         this.paiementEmployeForm = this.fb.group(
           {
             employe : [null, Validators.required],
@@ -76,11 +81,11 @@ export class PayerEmployeComponent implements OnInit {
   }
 
   reset(){
-
+    this.paiementEmployeForm.reset();
   }
 
   retour(){
-    
+    this.location.back()
   }
 
   setMonthAndYear(normalizedMonthAndYear: Moment, datepicker: MatDatepicker<Moment>) {

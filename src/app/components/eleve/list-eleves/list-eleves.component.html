@@ -10,7 +10,9 @@
 <form>
   <mat-form-field>
     <mat-label>Rechercher un élève</mat-label>
-    <input matInput>
+    <input matInput formControlName="recherche">
+    <button mat-raised-button (click)="searchEleve()">rechercher</button>
+    <button>reset</button>
   </mat-form-field> 
 </form>
 

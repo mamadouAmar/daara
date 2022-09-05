@@ -9,6 +9,8 @@ import { Moment} from 'moment';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { MatDatepicker } from '@angular/material/datepicker';
+import { Location } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 const moment =  _moment;
 
@@ -54,7 +56,10 @@ export class PayerMensualiteEleveComponent implements OnInit {
   mensualiteForm! : FormGroup;
 
   constructor(private eleveService : EleveService,
-    private fb : FormBuilder) {
+    private fb : FormBuilder,
+    private location : Location,
+    private router : Router,
+    private route : ActivatedRoute) {
       this.mensualiteForm = this.fb.group(
         {
           eleve : [null, Validators.required],
@@ -79,7 +84,7 @@ export class PayerMensualiteEleveComponent implements OnInit {
   }
 
   retour(){
-    
+    this.location.back();
   }
 
   setMonthAndYear(normalizedMonthAndYear: Moment, datepicker: MatDatepicker<Moment>) {

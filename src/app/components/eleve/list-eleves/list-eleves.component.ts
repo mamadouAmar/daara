@@ -1,7 +1,9 @@
+import { Location } from '@angular/common';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Eleve } from 'src/app/models/eleve';
 import { EleveService } from 'src/app/service/eleve.service';
 import { ListElevesDataSource } from './list-eleves-datasource';
@@ -21,7 +23,10 @@ export class ListElevesComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['eleveId', 'nom', 'prenom', 'dateNaissance', 'classe', 'action'];
 
-  constructor(private eleveService : EleveService) {
+  constructor(private eleveService : EleveService,
+      private location : Location,
+      private route : ActivatedRoute,
+      private router : Router) {
     this.dataSource = new ListElevesDataSource(eleveService);
   }
 
@@ -36,7 +41,7 @@ export class ListElevesComponent implements AfterViewInit {
   }
 
   clickOnMensualite(){
-
+    this.router.navigate(['mensualite'], {relativeTo: this.route});
   }
 
   rechercherEleve(){
@@ -44,6 +49,10 @@ export class ListElevesComponent implements AfterViewInit {
   }
 
   clickOnInscrire(){
+    this.router.navigate(['inscrire'], {relativeTo: this.route});
+  }
+
+  searchEleve(){
 
   }
 }
