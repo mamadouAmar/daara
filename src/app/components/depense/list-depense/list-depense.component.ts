@@ -1,11 +1,13 @@
 import { Location } from '@angular/common';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Depense } from 'src/app/models/depense';
 import { DepenseService } from 'src/app/service/depense.service';
+import { ViewDepenseComponent } from '../view-depense/view-depense.component';
 import { ListDepenseDataSource } from './list-depense-datasource';
 
 @Component({
@@ -25,8 +27,17 @@ export class ListDepenseComponent implements AfterViewInit {
   constructor(private depenseService : DepenseService,
       private route : ActivatedRoute,
       private router : Router,
-      private location : Location) {
+      private location : Location,
+      private dialog: MatDialog) {
     this.dataSource = new ListDepenseDataSource(depenseService);
+  }
+
+  openDialog(row : Depense) : void {
+    this.dialog.open(ViewDepenseComponent,
+      {
+        data : row
+      }
+      )
   }
 
   ngAfterViewInit(): void {

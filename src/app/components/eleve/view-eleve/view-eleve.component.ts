@@ -10,6 +10,7 @@ import { EleveService } from 'src/app/service/eleve.service';
   styleUrls: ['./view-eleve.component.css']
 })
 export class ViewEleveComponent implements OnInit {
+  idEleve! : number;
   eleve! : Eleve;
   age! : number;
 
@@ -22,6 +23,7 @@ export class ViewEleveComponent implements OnInit {
 
   ngOnInit(): void {
     this.eleve = new Eleve();
+    this.idEleve = this.route.snapshot.params['id'];
   }
 
   modifierEleve(){

@@ -11,6 +11,7 @@ import { EmployeService } from 'src/app/service/employe.service';
 })
 export class ViewEmployeComponent implements OnInit {
 
+  idEmploye! : number;
   employe! : Employe;
 
 
@@ -21,6 +22,7 @@ export class ViewEmployeComponent implements OnInit {
 
   ngOnInit(): void {
     this.employe = new Employe();
+    this.idEmploye = this.route.snapshot.params['id'];
   }
 
   modifierEmploye(){
