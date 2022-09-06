@@ -49,7 +49,23 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>actions</th>
       <td mat-cell *matCellDef="let row">
-
+        <button mat-icon-button [mat-menu-trigger-for]="menu" aria-label="options">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item
+            (click)="onClickPlus(row)">
+            <span>plus</span>
+          </button>
+          <button mat-menu-item
+            (click)="onClickModifier(row)">
+            <span>modifier</span>
+          </button>
+          <button mat-menu-item
+            (click)="onClickSupprimer(row)">
+            <span>supprimer</span>
+          </button>
+        </mat-menu>
       </td>
     </ng-container>
 

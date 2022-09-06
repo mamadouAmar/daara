@@ -8,11 +8,11 @@
 <br>
 
 <form>
-  <mat-form-field>
+  <mat-form-field class="row">
     <mat-label>Rechercher un élève</mat-label>
-    <input matInput formControlName="recherche">
-    <button mat-raised-button (click)="searchEleve()">rechercher</button>
-    <button>reset</button>
+    <input matInput formControlName="recherche" class="col">
+    <button mat-raised-button (click)="searchEleve()" class="col">rechercher</button>
+    <button mat-button class="col">reset</button>
   </mat-form-field> 
 </form>
 
@@ -50,7 +50,23 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>actions</th>
       <td mat-cell *matCellDef="let row">
-
+        <button mat-icon-button [mat-menu-trigger-for]="menu" aria-label="options">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item
+            (click)="onClickPlus(row)">
+            <span>plus</span>
+          </button>
+          <button mat-menu-item
+            (click)="onClickModifier(row)">
+            <span>modifier</span>
+          </button>
+          <button mat-menu-item
+            (click)="onClickSupprimer(row)">
+            <span>supprimer</span>
+          </button>
+        </mat-menu>
       </td>
     </ng-container>
 

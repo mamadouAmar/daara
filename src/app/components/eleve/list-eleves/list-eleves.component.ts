@@ -55,4 +55,16 @@ export class ListElevesComponent implements AfterViewInit {
   searchEleve(){
 
   }
+
+  onClickPlus(row : any){
+
+  }
+
+  onClickModifier(row : any){
+    
+  }
+
+  onClickSupprimer(row : any){
+    
+  }
 }

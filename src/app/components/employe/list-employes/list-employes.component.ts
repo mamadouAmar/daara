@@ -39,16 +39,24 @@ export class ListEmployesComponent implements AfterViewInit {
     this.router.navigate(['nouvel-employe'], {relativeTo: this.route});
   }
 
-  onClickVoirEmploye(){
-
-  }
-
   onClickPayerEmploye(){
     this.router.navigate(['payer-employe'], {relativeTo: this.route});
   }
 
   onClickPaiement(){
     this.router.navigate(['/bilan/paiment']);
+  }
+
+  onClickPlus(row : any){
+
+  }
+
+  onClickModifier(row : any){
+    
+  }
+
+  onClickSupprimer(row : any){
+    
   }
 
 }

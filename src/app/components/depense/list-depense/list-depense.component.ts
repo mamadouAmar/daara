@@ -32,7 +32,7 @@ export class ListDepenseComponent implements AfterViewInit {
     this.dataSource = new ListDepenseDataSource(depenseService);
   }
 
-  openDialog(row : Depense) : void {
+  private openDialog(row : Depense) : void {
     this.dialog.open(ViewDepenseComponent,
       {
         data : row
@@ -50,15 +50,15 @@ export class ListDepenseComponent implements AfterViewInit {
     this.router.navigate(['ajout-edit'], {relativeTo : this.route})
   }
 
-  onClickOnModifier(){
+  onClickOnModifier(row : Depense){
 
   }
 
-  onClickOnSupprimer(){
+  onClickOnSupprimer(row : Depense){
 
   }
 
-  onClickOnPlus(){
-    
+  onClickOnPlus(row : Depense){
+    this.openDialog(row);
   }
 }
