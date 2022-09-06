@@ -7,18 +7,32 @@
 
 <br>
 
-<form>
-  <mat-form-field class="row">
-    <mat-label>Rechercher un élève</mat-label>
-    <input matInput formControlName="recherche" class="col">
-    <button mat-raised-button (click)="searchEleve()" class="col">rechercher</button>
-    <button mat-button class="col">reset</button>
-  </mat-form-field> 
-</form>
+<mat-divider></mat-divider>
 
 <br>
 
-<div class="mat-elevation-z5">
+<form>
+  <div class="row">
+    <div class="col">
+      <mat-form-field >
+        <mat-label>Rechercher un élève</mat-label>
+        <input matInput formControlName="recherche" >
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <button mat-raised-button (click)="searchEleve()">rechercher</button>
+    </div>
+    <div class="col">
+      <button mat-button class="col">reset</button>
+    </div>
+  </div>
+</form>
+
+<mat-divider></mat-divider>
+
+<br>
+
+<div class="mat-elevation-z5 mt-3">
   <table mat-table class="full-width-table" matSort aria-label="Elements">
     <!-- Id Column -->
     <ng-container matColumnDef="eleveId">

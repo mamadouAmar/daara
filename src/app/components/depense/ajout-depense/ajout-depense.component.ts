@@ -13,7 +13,7 @@ export class AjoutDepenseComponent {
   ajoutDepenseForm = this.fb.group({
     depense: [null, Validators.required],
     somme: [null, Validators.required],
-    dateDepese: [null, Validators.required],
+    dateDepense: [null, Validators.required],
   });
 
   
