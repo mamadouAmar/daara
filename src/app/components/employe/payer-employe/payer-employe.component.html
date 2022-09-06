@@ -1,5 +1,5 @@
 <form [formGroup]="paiementEmployeForm" (ngSubmit)="payerEmploye()">
-    <mat-card class="">
+    <mat-card class="shipping-card">
         <mat-card-header>
             <mat-card-title>Payer un employe</mat-card-title>
         </mat-card-header>
@@ -9,7 +9,7 @@
                 <div class="col">
                     <mat-form-field class="full-width">
                         <mat-label>employe</mat-label>
-                        <mat-select formControlName="eleve">
+                        <mat-select formControlName="employe">
                             <mat-option *ngFor="let employe of employesEnActivites" [value]="employe">
                                 {{ employe.prenom }} {{" "}} {{ employe.nom }}
                             </mat-option>
@@ -40,7 +40,7 @@
                 <div class="col">
                     <mat-form-field class="full-width">
                         <mat-label>date de paiment</mat-label>
-                        <input matInput [matDatepicker]="picker" formControlName="datePaiment" [disabled]="disabled">
+                        <input matInput [matDatepicker]="picker" formControlName="datePaiement" [disabled]="disabled">
                         <mat-hint>MM/DD/YYYY HH:MM:SS</mat-hint>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>

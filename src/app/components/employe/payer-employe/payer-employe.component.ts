@@ -89,7 +89,8 @@ export class PayerEmployeComponent implements OnInit {
   }
 
   setMonthAndYear(normalizedMonthAndYear: Moment, datepicker: MatDatepicker<Moment>) {
-    const ctrlValue = this.paiementEmployeForm.controls['moisAnnee'].value!;
+    
+    let ctrlValue = this.paiementEmployeForm.controls['moisAnnee'].value!;
     this.mois = normalizedMonthAndYear.month();
     this.year = normalizedMonthAndYear.year();
     ctrlValue.month(normalizedMonthAndYear.month());

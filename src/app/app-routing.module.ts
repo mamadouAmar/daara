@@ -24,8 +24,8 @@ const routes: Routes = [
   children : [
     {path: '', component:ListElevesComponent},
     {path: 'inscrire', component:InscrireEleveComponent},
+    {path: 'mensualite', component:PayerMensualiteEleveComponent},
     {path: ':id', component: ViewEleveComponent},
-    {path: 'mensualite', component:PayerMensualiteEleveComponent}
   ]  
 },
   {path : 'employe',

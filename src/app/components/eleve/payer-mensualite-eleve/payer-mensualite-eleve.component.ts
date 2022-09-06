@@ -53,6 +53,7 @@ export class PayerMensualiteEleveComponent implements OnInit {
   year ! : number;
 
   elevesInscrit! : Eleve[];
+
   mensualiteForm! : FormGroup;
 
   constructor(private eleveService : EleveService,
@@ -60,17 +61,18 @@ export class PayerMensualiteEleveComponent implements OnInit {
     private location : Location,
     private router : Router,
     private route : ActivatedRoute) {
+
       this.mensualiteForm = this.fb.group(
         {
           eleve : [null, Validators.required],
-          moisAnnee : [moment(), Validators.required],
-          datePaiement : [moment(), Validators.required],
+          moisAnnee : [null, Validators.required],
+          datePaiement : [null, Validators.required],
           somme : [null, Validators.required],
           supplementArgent : [null],
-          others : [null]
+          others : [null],
         }
       );
-     }
+    }
 
   ngOnInit(): void {
   }
@@ -88,7 +90,8 @@ export class PayerMensualiteEleveComponent implements OnInit {
   }
 
   setMonthAndYear(normalizedMonthAndYear: Moment, datepicker: MatDatepicker<Moment>) {
-    const ctrlValue = this.mensualiteForm.controls['moisAnnee'].value!;
+
+    let ctrlValue = this.mensualiteForm.controls['moisAnnee'].value!;
     this.mois = normalizedMonthAndYear.month();
     this.year = normalizedMonthAndYear.year();
     ctrlValue.month(normalizedMonthAndYear.month());

@@ -10,9 +10,12 @@ import { EleveService } from 'src/app/service/eleve.service';
 export class ViewEleveComponent implements OnInit {
   eleve! : Eleve
   age! : number
-  constructor(private  eleveServer : EleveService) { }
+  constructor(private  eleveServer : EleveService) {
+
+  }
 
   ngOnInit(): void {
+    this.eleve = new Eleve();
   }
 
 }
