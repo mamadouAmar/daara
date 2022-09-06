@@ -7,7 +7,7 @@
         <mat-card-content>
             <div class="row">
                 <div class="col">
-                    <mat-form-field>
+                    <mat-form-field class="full-width">
                         <mat-label>eleve</mat-label>
                         <mat-select formControlName="eleve">
                             <mat-option *ngFor="let eleve of elevesInscrit" [value]="eleve">
@@ -17,7 +17,7 @@
                     </mat-form-field>
                 </div>
                 <div class="col">
-                    <mat-form-field>
+                    <mat-form-field class="full-width">
                         <mat-label>somme</mat-label>
                         <input type="number" matInput formControlName="somme">
                     </mat-form-field>
@@ -25,7 +25,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <mat-form-field appearance="fill">
+                    <mat-form-field class="full-width">
                         <mat-label>Month and Year</mat-label>
                         <input matInput [matDatepicker]="dp" formControlName="moisAnnee">
                         <mat-hint>MM/YYYY</mat-hint>
@@ -38,7 +38,7 @@
                     </mat-form-field>
                 </div>
                 <div class="col">
-                    <mat-form-field>
+                    <mat-form-field class="full-width">
                         <mat-label>date de paiment</mat-label>
                         <input matInput [matDatepicker]="picker" formControlName="datePaiement" [disabled]="disabled">
                         <mat-hint>MM/DD/YYYY HH:MM:SS</mat-hint>
@@ -49,13 +49,13 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <mat-form-field>
+                    <mat-form-field class="full-width">
                         <mat-label>supplement d'argent</mat-label>
                         <input type="number" matInput formControlName="supplementArgent">              
                     </mat-form-field>
                 </div>
                 <div class="col">
-                    <mat-form-field>
+                    <mat-form-field class="full-width">
                         <mat-label>other</mat-label>
                         <input type="text" matInput formControlName="others">
                     </mat-form-field>
@@ -65,7 +65,7 @@
         <mat-card-actions>
             <button mat-raised-button color="primary" type="submit">payer mensualite</button>
             <button mat-raised-button color="" (click)="reset()" >reset</button>
-            <button mat-raised-button color="" (click)="retour()">reset</button>
+            <button mat-raised-button color="" (click)="retour()">retour</button>
           </mat-card-actions>
     </mat-card>
 </form>

@@ -1,26 +1,26 @@
 <mat-card>
-    <div>
-        <mat-label>{{eleve.nom}}</mat-label>
-        <mat-label>{{eleve.prenom}} </mat-label>
+    <div class="row">
+        <mat-label class="col">{{eleve.nom}}</mat-label>
+        <mat-label class="col">{{eleve.prenom}} </mat-label>
     </div>
-    <div>
-        <mat-label>{{eleve.dateNaissance}}</mat-label>
-        <mat-label>{{age}} </mat-label>
+    <div class="row">
+        <mat-label class="col">{{eleve.dateNaissance}}</mat-label>
+        <mat-label class="col">{{age}} </mat-label>
     </div>
-    <div>
-        <mat-label>{{eleve.addresse}} </mat-label>
-        <mat-label>{{eleve.numeroTelephone}} </mat-label>
+    <div class="row">
+        <mat-label class="col">{{eleve.addresse}} </mat-label>
+        <mat-label class="col">{{eleve.numeroTelephone}} </mat-label>
     </div>
-    <div>
-        <mat-label>{{eleve.prenomPere}} </mat-label>
-        <mat-label>{{eleve.prenomNomMere}} </mat-label>
+    <div class="row">
+        <mat-label class="col">{{eleve.prenomPere}} </mat-label>
+        <mat-label class="col">{{eleve.prenomNomMere}} </mat-label>
     </div>
-    <div>
-        <mat-label>{{eleve.classe}} </mat-label>
-        <mat-label>{{eleve.dateDebut}} </mat-label>
+    <div class="row">
+        <mat-label class="col">{{eleve.classe}} </mat-label>
+        <mat-label class="col">{{eleve.dateDebut}} </mat-label>
     </div>
-    <div>
-        <mat-label>{{eleve.aSavoir}} </mat-label>
+    <div class="row">
+        <mat-label class="col">{{eleve.aSavoir}} </mat-label>
     </div>
     <mat-divider></mat-divider>
     <div>
@@ -30,4 +30,12 @@
     <div>
 
     </div>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+        <button mat-button (click)="modifierEleve()">modifier</button>
+        <button mat-button (click)="payerMensualite()">payer une mensualite</button>
+        <button mat-button (click)="reinscrireEleve()">reinscrire</button>
+        <button mat-button (click)="supprimerEleve()">supprimer</button>
+        <button mat-button (click)="retour()">retour</button>
+    </mat-card-actions>
 </mat-card>

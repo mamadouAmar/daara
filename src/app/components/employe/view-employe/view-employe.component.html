@@ -1,9 +1,33 @@
 <mat-card>
-    <div>
-
+    <div class="row">
+        <mat-label class="col">{{employe.nom}}</mat-label>
+        <mat-label class="col">{{employe.prenom}} </mat-label>
+    </div>
+    <div class="row">
+        <mat-label class="col">{{employe.dateNaissance}}</mat-label>
+        <mat-label class="col">{{employe.dateDebut}} </mat-label>
+    </div>
+    <div class="row">
+        <mat-label class="col">{{employe.adresse}} </mat-label>
+        <mat-label class="col">{{employe.numeroTelephone}} </mat-label>
+    </div>
+    <div class="row">
+        <mat-label class="col">{{employe.profession}} </mat-label>
+        <mat-label class="col">{{employe.salaire}} </mat-label>
+    </div>
+    <div class="row">
+        <mat-label class="col">{{employe.classeGeree}} </mat-label>
     </div>
     <mat-divider></mat-divider>
     <div>
         
     </div>
+
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+        <button mat-button (click)="modifierEmploye()">modifier</button>
+        <button mat-button (click)="payerSalaire()">payer salaire</button>
+        <button mat-button (click)="supprimerEmploye()">supprimer</button>
+        <button mat-button (click)="retour()">retour</button>
+    </mat-card-actions>
 </mat-card>
