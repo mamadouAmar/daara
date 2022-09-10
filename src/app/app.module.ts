@@ -27,24 +27,27 @@ import { ListEmployesComponent } from './components/employe/list-employes/list-e
 import { AjoutEmployeComponent } from './components/employe/ajout-employe/ajout-employe.component';
 import { AjoutDepenseComponent } from './components/depense/ajout-depense/ajout-depense.component';
 import { ListDepenseComponent } from './components/depense/list-depense/list-depense.component';
-import { MatTabsModule } from '@angular/material/tabs';
+import { MatTabLink, MatTabsModule } from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { PageBilanComponent } from './components/comptabilite/page-bilan/page-bilan.component';
-import { InscriptionComponent } from './components/comptabilite/inscription/inscription.component';
-import { PaiementsComponent } from './components/comptabilite/paiements/paiements.component';
+import { InscriptionComponent } from './components/archive/dossier/inscription/inscription.component';
+import { PaiementsComponent } from './components/archive/dossier/paiements/paiements.component';
 import { ViewDepenseComponent } from './components/depense/view-depense/view-depense.component';
 import { ViewEleveComponent } from './components/eleve/view-eleve/view-eleve.component';
 import { PayerMensualiteEleveComponent } from './components/eleve/payer-mensualite-eleve/payer-mensualite-eleve.component';
 import { ViewEmployeComponent } from './components/employe/view-employe/view-employe.component';
 import { PayerEmployeComponent } from './components/employe/payer-employe/payer-employe.component';
 import { ListClassesComponent } from './components/classes/list-classes/list-classes.component';
-import { MensualiteComponent } from './components/comptabilite/mensualite/mensualite.component';
+import { MensualiteComponent } from './components/archive/dossier/mensualite/mensualite.component';
 import { InscrireEleveComponent } from './components/eleve/inscrire-eleve/inscrire-eleve.component';
 import { ViewClasseComponent } from './components/classes/view-classe/view-classe.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { ArchiveComponent } from './components/archive/archive.component';
+import { ElevesComponent } from './components/archive/dossier/eleves/eleves.component';
+import { EmployesComponent } from './components/archive/dossier/employes/employes.component';
 
 
 @NgModule({
@@ -70,6 +73,9 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     ListClassesComponent,
     InscrireEleveComponent,
     ViewClasseComponent,
+    ArchiveComponent,
+    ElevesComponent,
+    EmployesComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +102,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatButtonModule, 
     MatDialogModule,
     MatDatepickerModule,
-    MatMomentDateModule
+    MatMomentDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

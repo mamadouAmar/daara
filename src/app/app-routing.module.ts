@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InscriptionComponent } from './components/comptabilite/inscription/inscription.component';
-import { MensualiteComponent } from './components/comptabilite/mensualite/mensualite.component';
+import { InscriptionComponent } from './components/archive/dossier/inscription/inscription.component';
+import { MensualiteComponent } from './components/archive/dossier/mensualite/mensualite.component';
 import { PageBilanComponent } from './components/comptabilite/page-bilan/page-bilan.component';
-import { PaiementsComponent } from './components/comptabilite/paiements/paiements.component';
+import { PaiementsComponent } from './components/archive/dossier/paiements/paiements.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AjoutDepenseComponent } from './components/depense/ajout-depense/ajout-depense.component';
@@ -17,6 +17,7 @@ import { AjoutEmployeComponent } from './components/employe/ajout-employe/ajout-
 import { ListEmployesComponent } from './components/employe/list-employes/list-employes.component';
 import { PayerEmployeComponent } from './components/employe/payer-employe/payer-employe.component';
 import { ViewEmployeComponent } from './components/employe/view-employe/view-employe.component';
+import { ElevesComponent } from './components/archive/dossier/eleves/eleves.component';
 
 const routes: Routes = [
   {path : 'connexion', component: ConnexionComponent},
@@ -36,20 +37,23 @@ const routes: Routes = [
     {path: ':id', component: ViewEmployeComponent},
   ]},
   {path: '', component: DashboardComponent},
-  {path: 'bilan',
+  {path: 'archive',
   children: [
-    {path:'mensualite', component: MensualiteComponent},
-    {path: 'inscription', component: InscriptionComponent},
-    {path: 'paiement', component: PaiementsComponent},
-    {path: 'depense', component: ListDepenseComponent},
-    {path: '',  component:PageBilanComponent}
+    {path:'mensualites', component: MensualiteComponent},
+    {path: 'inscriptions', component: InscriptionComponent},
+    {path: 'paiements', component: PaiementsComponent},
+    {path: 'depenses', component: ListDepenseComponent},
+    {path: 'eleves',  component:ElevesComponent}
   ]},
   {path:'depense',
   children: [
     {path: '', component: ListDepenseComponent},
     {path: 'ajout-edit', component: AjoutDepenseComponent},
     {path: ':id', component: ViewDepenseComponent}
-  ]}
+  ]},
+  {path : 'bilan', component : PageBilanComponent
+  
+}
 ];
 
 @NgModule({
