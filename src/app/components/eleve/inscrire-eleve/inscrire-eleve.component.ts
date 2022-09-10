@@ -94,7 +94,30 @@ export class InscrireEleveComponent implements OnInit {
   }
 
   inscrireEleve(){
+    if(this.inscriptionFormGroup.valid){
+      this.nouvelEleve = new Eleve();
+      this.nouvelEleve.prenom = this.inscriptionFormGroup.controls['prenom'].value();
+      this.nouvelEleve.nom = this.inscriptionFormGroup.controls['nom'].value();
+      this.nouvelEleve.dateNaissance = this.inscriptionFormGroup.controls['dateNaissance'].value();
+      this.nouvelEleve.dateDebut = this.inscriptionFormGroup.controls['dateDebut'].value();
+      this.nouvelEleve.prenomPere = this.inscriptionFormGroup.controls['prenomPere'].value();
+      this.nouvelEleve.prenomNomMere = this.inscriptionFormGroup.controls['prenomNomMere'].value();
+      this.nouvelEleve.addresse = this.inscriptionFormGroup.controls['adresse'].value();
+      this.nouvelEleve.aSavoir = this.inscriptionFormGroup.controls['aSavoir'].value();
+      
+      this.inscription = new Inscription();
+      this.inscription.anneeInscription = this.inscriptionFormGroup.get('anneeInscription')?.value()
+      this.inscription.somme = this.inscriptionFormGroup.controls['somme'].value();
+      this.inscription.classe = this.inscriptionFormGroup.controls['classe'].value();
+      this.inscription.eleveInscrit = {...this.nouvelEleve};
+      this.inscription.dateInscription = new Date();
 
+      this.eleveService.inscrireEleve(this.inscription).subscribe(
+        (data) => {
+          console.log(data);
+        }
+      )
+    }
   }
 
   retour(){

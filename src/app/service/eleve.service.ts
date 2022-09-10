@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Eleve } from '../models/eleve';
+import { Inscription } from '../models/inscription';
 import { Mensualite } from '../models/mensualite';
 import { Niveau } from '../models/niveau';
 
@@ -45,11 +46,11 @@ export class EleveService {
   }
 
   public inscrireEleve(
-    eleve : Eleve
+    inscription : Inscription
     ) : Observable<Eleve> {
     return this.http
     .post<Eleve>
-    (`${this.apiUrl}/eleve/inscrire`, eleve);
+    (`${this.apiUrl}/eleve/inscrire`, inscription);
   }
 
   public reglerMensualiteEleve(

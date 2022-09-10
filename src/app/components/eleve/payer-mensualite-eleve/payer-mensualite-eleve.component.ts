@@ -11,6 +11,7 @@ import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter } from '@angular/mat
 import { MatDatepicker } from '@angular/material/datepicker';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Mensualite } from 'src/app/models/mensualite';
 
 const moment =  _moment;
 
@@ -52,6 +53,8 @@ export class PayerMensualiteEleveComponent implements OnInit {
   mois ! : number;
   year ! : number;
 
+  mensualite! : Mensualite;
+
   elevesInscrit! : Eleve[];
 
   mensualiteForm! : FormGroup;
@@ -66,7 +69,7 @@ export class PayerMensualiteEleveComponent implements OnInit {
         {
           eleve : [null, Validators.required],
           moisAnnee : [null, Validators.required],
-          datePaiement : [null, Validators.required],
+          datePaiement : [new Date().toDateString(), Validators.required],
           somme : [null, Validators.required],
           supplementArgent : [null],
           others : [null],
@@ -78,11 +81,34 @@ export class PayerMensualiteEleveComponent implements OnInit {
   }
 
   payerMensualite(){
+    if(this.mensualiteForm.valid)
+    {
+      this.mensualite = new Mensualite();
+      this.mensualite.annee = this.year;
+      this.mensualite.mois = this.mois;
+      this.mensualite.eleveMensualite = this.mensualiteForm.controls['eleve'].value()
+      if(this.mensualiteForm.controls['somme'].value() == null || this.mensualiteForm.controls['somme'].value() == 0){
+        this.mensualite.somme = this.mensualite.eleveMensualite.classe.mensualite;
+      }
+      else{
+        this.mensualite.somme = this.mensualiteForm.controls['somme'].value();
+      }
+      this.mensualite.datePaiement = new Date();
+      this.mensualite.supplementArgent = this.mensualiteForm.controls['supplementArgent'].value();
+      this.mensualite.others = this.mensualiteForm.controls['others'].value();
 
+      this.eleveService.reglerMensualiteEleve(this.mensualite)
+        .subscribe(
+          (data) => {
+            console.log(data);
+          }
+        )
+    }
+    
   }
 
   reset(){
-
+    this.mensualiteForm.reset();
   }
 
   retour(){

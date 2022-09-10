@@ -18,7 +18,7 @@ export class ListElevesComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<Eleve>;
-  dataSource: ListElevesDataSource;
+  dataSource! : ListElevesDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['eleveId', 'nom', 'prenom', 'dateNaissance', 'classe', 'action'];

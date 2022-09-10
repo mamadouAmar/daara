@@ -11,6 +11,7 @@ import { EmployeService } from 'src/app/service/employe.service';
 import { Employe } from 'src/app/models/employe';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { Paiement } from 'src/app/models/paiement';
 
 const moment =  _moment;
 
@@ -50,6 +51,8 @@ export class PayerEmployeComponent implements OnInit {
 
   paiementEmployeForm! : FormGroup; 
 
+  paiement! : Paiement;
+
   employesEnActivites! : Employe[];
 
   constructor(private employeService : EmployeService,
@@ -57,15 +60,15 @@ export class PayerEmployeComponent implements OnInit {
       private route : ActivatedRoute,
       private router : Router,
       private location : Location) {
-        this.paiementEmployeForm = this.fb.group(
-          {
-            employe : [null, Validators.required],
-            moisAnnee : [null, Validators.required],
-            datePaiement : [moment(), Validators.required],
-            somme : [null, Validators.required],
-            others : [null]
-          }
-        );
+      this.paiementEmployeForm = this.fb.group(
+        {
+          employe : [null, Validators.required],
+          moisAnnee : [null, Validators.required],
+          datePaiement : [moment().toString(), ],
+          somme : [null, ],
+          others : [null]
+        }
+      );
        }
 
   ngOnInit(): void {
@@ -77,7 +80,28 @@ export class PayerEmployeComponent implements OnInit {
   year ! : number;
 
   payerEmploye(){
+    if(this.paiementEmployeForm.valid){
+      this.paiement = new Paiement();
+      this.paiement.annee = this.year;
+      this.paiement.mois = this.mois;
+      this.paiement.travailleur = this.paiementEmployeForm.controls['employe'].value();
+      if(this.paiementEmployeForm.controls['somme'].value() == null 
+            || this.paiementEmployeForm.controls['somme'].value() == 0){
+        this.paiement.somme = this.paiement.travailleur.salaire
+      }
+      else {
+        this.paiement.somme = this.paiementEmployeForm.controls['somme'].value();
+      }
+      this.paiement.others = this.paiementEmployeForm.controls['others'].value();
+      this.paiement.datePaiement = new Date();
 
+      this.employeService.payer_employe(this.paiement)
+        .subscribe(
+          (data) => {
+            console.log(data);
+          }
+        )
+    }
   }
 
   reset(){

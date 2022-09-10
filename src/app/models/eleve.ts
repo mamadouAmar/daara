@@ -1,3 +1,5 @@
+import { Niveau } from "./niveau";
+
 export class Eleve {
 
     public eleveId! : Number; 
@@ -9,7 +11,7 @@ export class Eleve {
     public addresse! : String; 
     public numeroTelephone! : String;
     public dateDebut! : Date;
-    public classe! : String;
+    public classe! : Niveau;
     public argentDePoche! : Number;
     public aSavoir! : String;
     
