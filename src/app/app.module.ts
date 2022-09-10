@@ -48,6 +48,8 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { ElevesComponent } from './components/archive/dossier/eleves/eleves.component';
 import { EmployesComponent } from './components/archive/dossier/employes/employes.component';
+import { FormulaireCalculBilanComponent } from './components/comptabilite/formulaire-calcul-bilan/formulaire-calcul-bilan.component';
+import { ListCalculBilanComponent } from './components/comptabilite/list-calcul-bilan/list-calcul-bilan.component';
 
 
 @NgModule({
@@ -76,6 +78,8 @@ import { EmployesComponent } from './components/archive/dossier/employes/employe
     ArchiveComponent,
     ElevesComponent,
     EmployesComponent,
+    FormulaireCalculBilanComponent,
+    ListCalculBilanComponent,
   ],
   imports: [
     BrowserModule,
