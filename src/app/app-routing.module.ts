@@ -18,6 +18,7 @@ import { ListEmployesComponent } from './components/employe/list-employes/list-e
 import { PayerEmployeComponent } from './components/employe/payer-employe/payer-employe.component';
 import { ViewEmployeComponent } from './components/employe/view-employe/view-employe.component';
 import { ElevesComponent } from './components/archive/dossier/eleves/eleves.component';
+import { ArchiveComponent } from './components/archive/archive.component';
 
 const routes: Routes = [
   {path : 'connexion', component: ConnexionComponent},
@@ -37,13 +38,14 @@ const routes: Routes = [
     {path: ':id', component: ViewEmployeComponent},
   ]},
   {path: '', component: DashboardComponent},
-  {path: 'archive',
+  {path: 'archive', component: ArchiveComponent,
   children: [
     {path:'mensualites', component: MensualiteComponent},
     {path: 'inscriptions', component: InscriptionComponent},
     {path: 'paiements', component: PaiementsComponent},
     {path: 'depenses', component: ListDepenseComponent},
-    {path: 'eleves',  component:ElevesComponent}
+    {path: 'eleves',  component:ElevesComponent},
+    {path: 'employes',  component:ElevesComponent},
   ]},
   {path:'depense',
   children: [

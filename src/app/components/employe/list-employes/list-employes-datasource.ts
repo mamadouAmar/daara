@@ -105,8 +105,8 @@ export class ListEmployesDataSource extends DataSource<Employe> {
     return data.sort((a, b) => {
       const isAsc = this.sort?.direction === 'asc';
       switch (this.sort?.active) {
-        case 'nom': return compare(a.nom.valueOf(), b.nom.valueOf(), isAsc);
-        case 'prenom': return compare(+a.prenom.valueOf(), +b.prenom.valueOf(), isAsc);
+        case 'nom': return compare(a?.nom?.valueOf(), b?.nom?.valueOf(), isAsc);
+        case 'prenom': return compare(+a?.prenom?.valueOf(), +b?.prenom?.valueOf(), isAsc);
         default: return 0;
       }
     });
