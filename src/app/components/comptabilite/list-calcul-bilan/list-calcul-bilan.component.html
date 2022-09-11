@@ -1,5 +1,70 @@
 <mat-card>
-<!-- Tableaux des bilans  -->
+    <mat-card-content>
+        <table mat-table class="full-width-table">
+            <ng-container matColumnDef="dateBilan">
+                <th mat-header-cell *matHeaderCellDef>
+                    date bilan
+                </th>
+                <td mat-cell *matCellDef="let row"> {{ row.dateBilan }} </td>
+            </ng-container>
 
+            <ng-container matColumnDef="dateDebut">
+                <th mat-header-cell *matHeaderCellDef>
+                    date debut
+                </th>
+                <td mat-cell *matCellDef="let row"> {{ row.dateDebut }} </td>
 
+            </ng-container>
+
+            <ng-container matColumnDef="dateFin">
+                <th mat-header-cell *matHeaderCellDef>
+                    date fin
+                </th>
+                <td mat-cell *matCellDef="let row"> {{ row.dateFin }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="totalEntrees">
+                <th mat-header-cell *matHeaderCellDef>
+                    total entree
+                </th>
+                <td mat-cell *matCellDef="let row"> {{ row.totalEntrees }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="totalSorties">
+                <th mat-header-cell *matHeaderCellDef>
+                    total sortie
+                </th>
+                <td mat-cell *matCellDef="let row"> {{ row.totalSorties }} </td>
+
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>
+                    date fin
+                </th>
+                <td mat-cell *matCellDef="let row"> 
+                    <button mat-icon-button [mat-menu-trigger-for]="menu" aria-label="options">
+                    <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item
+                        (click)="onClickPlus(row)">
+                        <span>plus</span>
+                        </button>
+                        <button mat-menu-item
+                        (click)="onClickModifier(row)">
+                        <span>modifier</span>
+                        </button>
+                        <button mat-menu-item
+                        (click)="onClickSupprimer(row)">
+                        <span>supprimer</span>
+                        </button>
+                    </mat-menu>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns : displayedColumns;"></tr>
+        </table>
+    </mat-card-content>
 </mat-card>

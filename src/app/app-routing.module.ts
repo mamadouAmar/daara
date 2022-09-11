@@ -19,6 +19,7 @@ import { PayerEmployeComponent } from './components/employe/payer-employe/payer-
 import { ViewEmployeComponent } from './components/employe/view-employe/view-employe.component';
 import { ElevesComponent } from './components/archive/dossier/eleves/eleves.component';
 import { ArchiveComponent } from './components/archive/archive.component';
+import { AfficherBilanComponent } from './components/comptabilite/afficher-bilan/afficher-bilan.component';
 
 const routes: Routes = [
   {path : 'connexion', component: ConnexionComponent},
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path: '', component: DashboardComponent},
   {path: 'archive', component: ArchiveComponent,
   children: [
+    {path:'', component: ElevesComponent},
     {path:'mensualites', component: MensualiteComponent},
     {path: 'inscriptions', component: InscriptionComponent},
     {path: 'paiements', component: PaiementsComponent},
@@ -53,8 +55,10 @@ const routes: Routes = [
     {path: 'ajout-edit', component: AjoutDepenseComponent},
     {path: ':id', component: ViewDepenseComponent}
   ]},
-  {path : 'bilan', component : PageBilanComponent
-  
+  {path : 'bilan', component : PageBilanComponent,
+  children : [
+    {path: ':id', component: AfficherBilanComponent},
+  ] 
 }
 ];
 
