@@ -1,6 +1,8 @@
 <form [formGroup]="calculBilanFormGroup" (ngSubmit)="calculerBilan()">
     <mat-card>
-        <mat-card-header>Faire un bilan</mat-card-header>
+        <mat-card-header>
+            <h4>Faire un bilan</h4>
+        </mat-card-header>
         <mat-card-content>
             <div class="row">
                 <div class="col">
@@ -15,20 +17,17 @@
                 <div class="col">
                     <mat-form-field class="full-width">
                         <mat-label>fin</mat-label>
-                        <mat-form-field class="full-width">
-                            <mat-label>fin</mat-label>
-                            <input matInput [matDatepicker]="finPicker" formControlName="dateFin">
-                            <mat-hint>DD/MM/YYYY</mat-hint>
-                            <mat-datepicker-toggle matSuffix [for]="finPicker"></mat-datepicker-toggle>
-                            <mat-datepicker #finPicker></mat-datepicker>
-                        </mat-form-field>
+                        <input matInput [matDatepicker]="finPicker" formControlName="dateFin">
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="finPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #finPicker></mat-datepicker>
                     </mat-form-field>
                 </div>
             </div>
         </mat-card-content>
     </mat-card>
     <mat-card-actions>
-        <button mat-raised-button color="primary" type="submit">calculer</button>
+        <button mat-raised-button class="mr-3" color="primary" type="submit">calculer</button>
         <button mat-flat-button (click)="reset()">reset</button>
     </mat-card-actions>
 </form>

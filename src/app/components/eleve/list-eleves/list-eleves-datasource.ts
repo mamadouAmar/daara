@@ -113,7 +113,7 @@ export class ListElevesDataSource extends DataSource<Eleve> {
       const isAsc = this.sort?.direction === 'asc';
       switch (this.sort?.active) {
         case 'nom': return compare(a.nom.valueOf(), b.nom.valueOf(), isAsc);
-        case 'id': return compare(+a.eleveId, +b.eleveId, isAsc);
+        case 'prenom': return compare(+a.prenom.valueOf(), +b.prenom.valueOf(), isAsc);
         default: return 0;
       }
     });

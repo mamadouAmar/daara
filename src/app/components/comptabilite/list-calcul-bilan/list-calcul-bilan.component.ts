@@ -11,16 +11,8 @@ import { BilanService } from 'src/app/service/bilan.service';
   styleUrls: ['./list-calcul-bilan.component.css']
 })
 export class ListCalculBilanComponent implements OnInit {
-onClickSupprimer(row: any) {
-throw new Error('Method not implemented.');
-}
-onClickModifier(row: any) {
-throw new Error('Method not implemented.');
-}
-onClickPlus(row: any) {
-  let id = row.id;
-  this.router.navigate([id]);
-}
+
+
 
   dataSource! : DataSource<Bilan>;
 
@@ -36,5 +28,12 @@ onClickPlus(row: any) {
   ngOnInit(): void {
 
   }
+
+  onClickSupprimer(row: any) {
+    throw new Error('Method not implemented.');
+    }
+    onClickModifier(row: any) {
+    throw new Error('Method not implemented.');
+    }
 
 }

@@ -69,7 +69,7 @@
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item
-            (click)="onClickPlus(row)">
+            [routerLink]="row.eleveId">
             <span>plus</span>
           </button>
           <button mat-menu-item
