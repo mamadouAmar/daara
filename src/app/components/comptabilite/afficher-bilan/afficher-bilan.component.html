@@ -1,10 +1,56 @@
 <mat-card>
     <mat-card-header>bilan du {{ bilan.debut | date : 'shortDate' }} au {{ bilan.fin | date : 'shortDate' }}</mat-card-header>
     <!-- Entrees -->
-    
+    <mat-divider></mat-divider>
+    <div>
+        <table mat-table class="full-with-table tab-entrees">
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef>date entree</th>
+                <td mat-cell *matCellDef="let row">{{row.date | date}}</td>
+            </ng-container>
+            <ng-container matColumnDef="typeEntree">
+                <th mat-header-cell *matHeaderCellDef>type entree</th>
+                <td mat-cell *matCellDef="let row">{{row.typeEntre }}</td>
+            </ng-container>
+            <ng-container matColumnDef="somme">
+                <th mat-header-cell *matHeaderCellDef>somme perçue</th>
+                <td mat-cell *matCellDef="let row">{{row.somme}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="entreesDisplayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: entreesDisplayedColumns"></tr>
+        </table>
+    </div>
     
     <!-- Sorties  -->
-    
+    <mat-divider></mat-divider>
+    <div>
+        <table mat-table class="full-with-table tab-entrees">
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef>date entree</th>
+                <td mat-cell *matCellDef="let row">{{row.dateSortie | date}}</td>
+            </ng-container>
+            <ng-container matColumnDef="typeSortie">
+                <th mat-header-cell *matHeaderCellDef>type entree</th>
+                <td mat-cell *matCellDef="let row">{{row.typeSortie }}</td>
+            </ng-container>
+            <ng-container matColumnDef="somme">
+                <th mat-header-cell *matHeaderCellDef>somme debitee</th>
+                <td mat-cell *matCellDef="let row">{{row.somme}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="sortiesDisplayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: sortiesDisplayedColumns"></tr>
+        </table>
+    </div>
+
+    <!-- Calcul -->
+    <mat-divider></mat-divider>
+    <div class="row">
+        <div class="col"> {{bilan.totalEntre}} </div>
+        <div class="col"> {{bilan.totalSorties}} </div>
+        <div class="col"> {{bilan.gain}} </div>
+    </div>
+
+    <mat-divider></mat-divider>
     <!-- Actions  -->
         <mat-card-actions>
             <button mat-button>imprimer</button>
