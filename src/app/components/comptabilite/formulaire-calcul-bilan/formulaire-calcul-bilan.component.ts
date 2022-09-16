@@ -34,7 +34,7 @@ export class FormulaireCalculBilanComponent implements OnInit {
   }
 
   reset(){
-
+    this.calculBilanFormGroup.reset();
   }
 
 }

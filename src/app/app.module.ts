@@ -51,6 +51,8 @@ import { EmployesComponent } from './components/archive/dossier/employes/employe
 import { FormulaireCalculBilanComponent } from './components/comptabilite/formulaire-calcul-bilan/formulaire-calcul-bilan.component';
 import { ListCalculBilanComponent } from './components/comptabilite/list-calcul-bilan/list-calcul-bilan.component';
 import { AfficherBilanComponent } from './components/comptabilite/afficher-bilan/afficher-bilan.component';
+import { EntreesComponent } from './components/archive/dossier/entrees/entrees.component';
+import { SortiesComponent } from './components/archive/dossier/sorties/sorties.component';
 
 
 @NgModule({
@@ -82,6 +84,8 @@ import { AfficherBilanComponent } from './components/comptabilite/afficher-bilan
     FormulaireCalculBilanComponent,
     ListCalculBilanComponent,
     AfficherBilanComponent,
+    EntreesComponent,
+    SortiesComponent,
   ],
   imports: [
     BrowserModule,
