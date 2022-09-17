@@ -15,24 +15,24 @@ export class EmployeService {
   constructor(private http:HttpClient) { }
 
   public getAll() : Observable<Employe[]> {
-    return this.http.get<Employe[]>(`${this.apiUrl}/employe`);
+    return this.http.get<Employe[]>(`${this.apiUrl}/interne`);
   }
 
   public getOne(id : Number) : Observable<Employe> {
-    return this.http.get<Employe>(`${this.apiUrl}/employe/${id}`);
+    return this.http.get<Employe>(`${this.apiUrl}/interne/${id}`);
   }
 
   public postOne(corps : Employe) : Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/employe`, corps);
+    return this.http.post<Employe>(`${this.apiUrl}/interne`, corps);
   }
 
   public delete(id : Number) : Observable<String> {
-    return this.http.delete<String>(`${this.apiUrl}/employe/${id}`); 
+    return this.http.delete<String>(`${this.apiUrl}/interne/${id}`); 
   }
 
   public payer_employe(paiement : Paiement) : Observable<Paiement> {
     return this.http.post<Paiement>
-    (`${this.apiUrl}/employe/payer-employe`, paiement);
+    (`${this.apiUrl}/interne/payer-employe`, paiement);
   }
 
   public getPaiements(
@@ -40,6 +40,6 @@ export class EmployeService {
     ): Observable<Paiement[]>{
     return this.http
       .get<Paiement[]>
-      (`${this.apiUrl}/employe/${id}/paiement`);
+      (`${this.apiUrl}/interne/${id}/paiement`);
   }
 }

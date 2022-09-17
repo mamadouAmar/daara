@@ -19,7 +19,7 @@ export class ListDepenseComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<Depense>;
-  dataSource: ListDepenseDataSource;
+  dataSource! : ListDepenseDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['depenseId', 'dateDepense', 'somme', 'depense', 'action'];

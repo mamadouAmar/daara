@@ -16,7 +16,7 @@ export class AjoutDepenseComponent {
   dateActuel = new Date().toDateString()
   
   ajoutDepenseForm = this.fb.group({
-    depense: [null, Validators.required],
+    descDepense: [null, Validators.required],
     somme: [null, Validators.required],
     dateDepense: [this.dateActuel],
   });
@@ -32,8 +32,8 @@ export class AjoutDepenseComponent {
   ajouterDepense(){
     if(this.ajoutDepenseForm.valid){
       this.depense = new Depense();
-      this.depense.depense = this.ajoutDepenseForm.controls['depense'].value();
-      this.depense.somme = this.ajoutDepenseForm.controls['somme'].value()
+      this.depense.depense = this.ajoutDepenseForm.controls['descDepense'].value;
+      this.depense.somme = this.ajoutDepenseForm.controls['somme'].value;
       this.depense.dateDepense = new Date();
 
       this.depenseService.postOne(this.depense)
@@ -51,6 +51,6 @@ export class AjoutDepenseComponent {
   }
 
   reset(){
-
+    this.ajoutDepenseForm.reset();
   }
 }

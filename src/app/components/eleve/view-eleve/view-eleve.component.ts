@@ -14,7 +14,7 @@ export class ViewEleveComponent implements OnInit {
   eleve! : Eleve;
   age! : number;
 
-  constructor(private  eleveServer : EleveService, 
+  constructor(private  eleveService : EleveService, 
     private route : ActivatedRoute,
     private location : Location,
     private router : Router) {
@@ -24,6 +24,13 @@ export class ViewEleveComponent implements OnInit {
   ngOnInit(): void {
     this.eleve = new Eleve();
     this.idEleve = this.route.snapshot.params['id'];
+    this.eleveService.getOne(this.idEleve)
+      .subscribe(
+        (eleve) => {
+          this.eleve = eleve;
+          console.log(eleve);
+        }
+      )
   }
 
   modifierEleve(){

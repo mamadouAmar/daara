@@ -1,7 +1,7 @@
 <mat-card>
     <div class="row">
-        <mat-label class="col">{{eleve.nom}}</mat-label>
-        <mat-label class="col">{{eleve.prenom}} </mat-label>
+        <mat-label class="col">{{ eleve.nom }}</mat-label>
+        <mat-label class="col">{{ eleve.prenom }} </mat-label>
     </div>
     <div class="row">
         <mat-label class="col">{{eleve.dateNaissance}}</mat-label>
@@ -16,8 +16,8 @@
         <mat-label class="col">{{eleve.prenomNomMere}} </mat-label>
     </div>
     <div class="row">
-        <mat-label class="col">{{eleve.classe}} </mat-label>
-        <mat-label class="col">{{eleve.dateDebut}} </mat-label>
+        <mat-label class="col">{{eleve.classe?.appelation}} </mat-label>
+        <mat-label class="col">{{eleve.dateDebut | date : 'short'}} </mat-label>
     </div>
     <div class="row">
         <mat-label class="col">{{eleve.aSavoir}} </mat-label>
