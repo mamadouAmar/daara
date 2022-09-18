@@ -1,3 +1,5 @@
+import { Niveau } from "./niveau";
+
 export class Employe {
 
     public interneId? : Number;
@@ -9,7 +11,7 @@ export class Employe {
     public dateDebut? : Date;
     public profession? : String;
     public salaire? : Number;
-    public classeGeree? : Number;
+    public classeGeree? : Niveau;
 
     constructor(
         

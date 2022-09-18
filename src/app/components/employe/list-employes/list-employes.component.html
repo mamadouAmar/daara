@@ -8,11 +8,21 @@
 
 <br>
 
-<form>
-  <mat-form-field>
-    <mat-label>Rechercher un employe</mat-label>
-    <input matInput >
-  </mat-form-field> 
+<form [formGroup]="this.rechercheFormGroup" (ngSubmit)="searchEmploye()">
+  <div class="row">
+    <div class="col">
+      <mat-form-field >
+        <mat-label>Rechercher un élève</mat-label>
+        <input matInput formControlName="recherche" >
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <button mat-raised-button  type="submit" (click)="searchEmploye()">rechercher</button>
+    </div>
+    <div class="col">
+      <button mat-button type="reset" class="col">reset</button>
+    </div>
+  </div>
 </form>
 
 <br>

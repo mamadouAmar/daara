@@ -1,23 +1,78 @@
 <mat-card>
+    <form [formGroup]="this.employeFormGroup">
     <div class="row">
-        <mat-label class="col">{{employe.nom}}</mat-label>
-        <mat-label class="col">{{employe.prenom}} </mat-label>
-    </div>
-    <div class="row">
-        <mat-label class="col">{{employe.dateNaissance}}</mat-label>
-        <mat-label class="col">{{employe.dateDebut}} </mat-label>
-    </div>
-    <div class="row">
-        <mat-label class="col">{{employe.adresse}} </mat-label>
-        <mat-label class="col">{{employe.numeroTelephone}} </mat-label>
-    </div>
-    <div class="row">
-        <mat-label class="col">{{employe.profession}} </mat-label>
-        <mat-label class="col">{{employe.salaire}} </mat-label>
-    </div>
-    <div class="row">
-        <mat-label class="col">{{employe.classeGeree}} </mat-label>
-    </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="prenom" formControlName="prenom">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="nom" formControlName="nom">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="adresse" formControlName="adresse" />
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="numero de telephone" formControlName="numeroTelephone" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>date de naissance</mat-label>
+            <input matInput [max]="maxDate" [matDatepicker]="naissancePicker" placeholder="date de naissance" formControlName="dateNaissance" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="naissancePicker"></mat-datepicker-toggle>
+            <mat-datepicker #naissancePicker></mat-datepicker>
+            
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>date de debut</mat-label>
+            <input matInput [matDatepicker]="datedebutPicker" placeholder="date de debut" formControlName="dateDebut" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="datedebutPicker"></mat-datepicker-toggle>
+            <mat-datepicker #datedebutPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="half-width">
+            <input type="number" matInput placeholder="salaire" formControlName="salaire" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <!-- <input matInput placeholder="profession" formControlName="profession" /> -->
+            <mat-label>profession</mat-label>
+            <input matInput formControlName="profession">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <!-- <input matInput placeholder="classe" formControlName="classeGeree" /> -->
+            <mat-label>classe geree</mat-label>
+            <input matInput formControlName="classeGeree">
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
     <mat-divider></mat-divider>
     <div>
         
@@ -25,9 +80,10 @@
 
     <mat-divider></mat-divider>
     <mat-card-actions>
-        <button mat-button (click)="modifierEmploye()">modifier</button>
-        <button mat-button (click)="payerSalaire()">payer salaire</button>
-        <button mat-button (click)="supprimerEmploye()">supprimer</button>
+        <button *ngIf="!this.modifier" mat-button (click)="modifierEmploye()">modifier</button>
+        <button *ngIf="this.modifier" mat-button (click)="enregistrer()">enregistrer</button>
+        <button *ngIf="!this.modifier" mat-button (click)="payerSalaire()">payer salaire</button>
+        <button *ngIf="!this.modifier" mat-button (click)="supprimerEmploye()">supprimer</button>
         <button mat-button (click)="retour()">retour</button>
     </mat-card-actions>
 </mat-card>

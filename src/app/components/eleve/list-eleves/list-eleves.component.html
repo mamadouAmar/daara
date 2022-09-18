@@ -11,7 +11,7 @@
 
 <br>
 
-<form>
+<form [formGroup]="this.rechercheFormGroup" (ngSubmit)="searchEleve()">
   <div class="row">
     <div class="col">
       <mat-form-field >
@@ -20,10 +20,10 @@
       </mat-form-field>
     </div>
     <div class="col">
-      <button mat-raised-button (click)="searchEleve()">rechercher</button>
+      <button mat-raised-button  type="submit" (click)="searchEleve()">rechercher</button>
     </div>
     <div class="col">
-      <button mat-button class="col">reset</button>
+      <button mat-button type="reset" class="col">reset</button>
     </div>
   </div>
 </form>

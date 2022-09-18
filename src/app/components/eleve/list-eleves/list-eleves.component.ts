@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
@@ -20,14 +21,20 @@ export class ListElevesComponent implements AfterViewInit {
   @ViewChild(MatTable) table!: MatTable<Eleve>;
   dataSource! : ListElevesDataSource;
 
+  rechercheFormGroup! : FormGroup;
+
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['eleveId', 'nom', 'prenom', 'dateNaissance', 'classe', 'action'];
 
   constructor(private eleveService : EleveService,
       private location : Location,
       private route : ActivatedRoute,
-      private router : Router) {
+      private router : Router,
+      private fb : FormBuilder) {
     this.dataSource = new ListElevesDataSource(eleveService);
+    this.rechercheFormGroup = this.fb.group({
+      recherche : this.fb.control(null)
+    });
   }
 
   ngAfterViewInit(): void {

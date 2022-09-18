@@ -68,10 +68,10 @@
     <mat-divider></mat-divider>
     <mat-card-actions>
         <button *ngIf="!this.modifier" mat-button (click)="modifierEleve()">modifier</button>
-        <button *ngIf="this.modifier" mat-button (click)="enregistrer()"></button>
-        <button mat-button (click)="payerMensualite()">payer une mensualite</button>
-        <button mat-button (click)="reinscrireEleve()">reinscrire</button>
-        <button mat-button (click)="supprimerEleve()">supprimer</button>
+        <button *ngIf="this.modifier" mat-button (click)="enregistrer()">enregistrer</button>
+        <button *ngIf="!this.modifier" mat-button (click)="payerMensualite()">payer une mensualite</button>
+        <button *ngIf="!this.modifier" mat-button (click)="reinscrireEleve()">reinscrire</button>
+        <button *ngIf="!this.modifier" mat-button (click)="supprimerEleve()">supprimer</button>
         <button mat-button (click)="retour()">retour</button>
     </mat-card-actions>
 </mat-card>
