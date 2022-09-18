@@ -43,10 +43,11 @@ export class AfficherBilanComponent implements OnInit {
           this.sortiesDataSource = new MatTableDataSource(this.bilan.sorties);
           this.bilan.totalEntre = 0;
           this.bilan.totalSorties = 0;
-          for (let i in this.bilan.entrees) {
-            this.bilan.totalEntre += this.bilan.entrees[i].somme;
-            this.bilan.totalSorties += this.bilan.entrees[i].somme;
-          }
+          let i:number = 0;
+          // for (let i in this.bilan.entrees) {
+          //   this.bilan.totalEntre += this.bilan.entrees[i].somme;
+          //   this.bilan.totalSorties += this.bilan.entrees[i].somme;
+          // }
           this.bilan.gain = this.bilan.totalEntre-this.bilan.totalSorties;
         }
       )

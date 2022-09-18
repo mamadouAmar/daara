@@ -61,6 +61,12 @@ export class EleveService {
     (`${this.apiUrl}/eleve/regler-mensualite`, mensualite);
   }
 
+  public postOne(eleve : Eleve): Observable<Eleve>{
+    return this.http
+    .post<Eleve>
+    (`${this.apiUrl}/eleve`, eleve); 
+  }
+
   public delete(
     id : Number
     ) : Observable<String> {

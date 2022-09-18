@@ -1,28 +1,62 @@
 <mat-card>
+    <form [formGroup]="this.eleveFormgroup">
     <div class="row">
-        <mat-label class="col">{{ eleve.nom }}</mat-label>
-        <mat-label class="col">{{ eleve.prenom }} </mat-label>
+        <div class="col">
+            <mat-form-field class="full-width">
+                <mat-label>nom</mat-label>
+                <input matInput type="text" formControlName="nom">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field class="full-width">
+                <mat-label>prenom</mat-label>
+                <input matInput type="text" formControlName="prenom">
+            </mat-form-field>
+        </div>
     </div>
     <div class="row">
-        <mat-label class="col">{{eleve.dateNaissance}}</mat-label>
-        <mat-label class="col">{{age}} </mat-label>
+        <div class="col">
+            <mat-form-field class="full-width">
+                <mat-label>date de naissance</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dateNaissance" >
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field class="full-width">
+                <mat-label>adresse</mat-label>
+                <input matInput type="text" formControlName="adresse">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <mat-form-field class="full-width">
+                <mat-label>prenom du pere</mat-label>
+                <input matInput type="text" formControlName="prenomPere">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field class="full-width">
+                <mat-label>prenom et nom de la mere</mat-label>
+                <input matInput type="text" formControlName="prenomNomMere">
+            </mat-form-field>
+        </div>
     </div>
     <div class="row">
-        <mat-label class="col">{{eleve.addresse}} </mat-label>
-        <mat-label class="col">{{eleve.numeroTelephone}} </mat-label>
+        <div class="col">
+            <mat-form-field class="full-width">
+                <mat-label>à savoir</mat-label>
+                <textarea matInput type="text" formControlName="aSavoir"
+                placeholder="sur l'élève ...">
+                </textarea>
+            </mat-form-field>
+        </div>
     </div>
-    <div class="row">
-        <mat-label class="col">{{eleve.prenomPere}} </mat-label>
-        <mat-label class="col">{{eleve.prenomNomMere}} </mat-label>
-    </div>
-    <div class="row">
-        <mat-label class="col">{{eleve.classe?.appelation}} </mat-label>
-        <mat-label class="col">{{eleve.dateDebut | date : 'short'}} </mat-label>
-    </div>
-    <div class="row">
-        <mat-label class="col">{{eleve.aSavoir}} </mat-label>
-    </div>
-    
+    </form>
     <mat-divider></mat-divider>
     <div>
         
@@ -33,7 +67,8 @@
     </div>
     <mat-divider></mat-divider>
     <mat-card-actions>
-        <button mat-button (click)="modifierEleve()">modifier</button>
+        <button *ngIf="!this.modifier" mat-button (click)="modifierEleve()">modifier</button>
+        <button *ngIf="this.modifier" mat-button (click)="enregistrer()"></button>
         <button mat-button (click)="payerMensualite()">payer une mensualite</button>
         <button mat-button (click)="reinscrireEleve()">reinscrire</button>
         <button mat-button (click)="supprimerEleve()">supprimer</button>
