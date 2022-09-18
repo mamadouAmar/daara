@@ -9,8 +9,8 @@ export class Bilan {
     public dateBilan? : Date;
     public debut! : Date;
     public fin! : Date;
-    public entrees? : Entree[];
-    public Sorties? : Sortie[];
+    public entrees? : Entree[] = [];
+    public sorties? : Sortie[] = [];
 
     constructor(
         

@@ -60,14 +60,14 @@ export class AjoutEmployeComponent implements OnInit{
   onSubmit(): void {
     if(this.ajouterEmployeForm.valid){
       this.employe = new Employe();
-      this.employe.nom = this.ajouterEmployeForm.controls['nom'].value();
-      this.employe.prenom = this.ajouterEmployeForm.controls['prenom'].value();
-      this.employe.adresse = this.ajouterEmployeForm.controls['adresse'].value();
-      this.employe.numeroTelephone = this.ajouterEmployeForm.controls['numeroTelephone'].value();
-      this.employe.dateNaissance = this.ajouterEmployeForm.controls['dateNaissance'].value();
-      this.employe.profession = this.ajouterEmployeForm.controls['profession'].value();
-      this.employe.salaire = this.ajouterEmployeForm.controls['salaire'].value();
-      this.employe.classeGeree = this.ajouterEmployeForm.controls['classeGeree'].value();
+      this.employe.nom = this.ajouterEmployeForm.controls['nom'].value;
+      this.employe.prenom = this.ajouterEmployeForm.controls['prenom'].value;
+      this.employe.adresse = this.ajouterEmployeForm.controls['adresse'].value;
+      this.employe.numeroTelephone = this.ajouterEmployeForm.controls['numeroTelephone'].value;
+      this.employe.dateNaissance = this.ajouterEmployeForm.controls['dateNaissance'].value;
+      this.employe.profession = this.ajouterEmployeForm.controls['profession'].value;
+      this.employe.salaire = this.ajouterEmployeForm.controls['salaire'].value;
+      this.employe.classeGeree = this.ajouterEmployeForm.controls['classeGeree'].value;
 
       this.employeService.postOne(this.employe)
         .subscribe(

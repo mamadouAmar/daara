@@ -42,7 +42,7 @@ import { EmployeService } from 'src/app/service/employe.service';
  * (including sorting, pagination, and filtering).
  */
 export class ListEmployesDataSource extends DataSource<Employe> {
-  data!: Employe[];
+  data : Employe[] = [];
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 

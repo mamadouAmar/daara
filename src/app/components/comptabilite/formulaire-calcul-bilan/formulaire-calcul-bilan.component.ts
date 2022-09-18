@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Bilan } from 'src/app/models/bilan';
 import { BilanService } from 'src/app/service/bilan.service';
 
 @Component({
@@ -30,7 +31,19 @@ export class FormulaireCalculBilanComponent implements OnInit {
   }
 
   calculerBilan(){
-
+    if (this.calculBilanFormGroup.valid){
+      let bilan = new Bilan();
+      bilan.debut = this.calculBilanFormGroup.controls['dateDebut'].value;
+      bilan.fin = this.calculBilanFormGroup.controls['dateFin'].value;
+      bilan.dateBilan = new Date();
+      this.bilanService.calculerBilan(bilan)
+        .subscribe(
+          (data) => {
+           console.log(data);
+          }
+        )
+    }
+    
   }
 
   reset(){

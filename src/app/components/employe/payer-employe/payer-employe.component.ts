@@ -53,7 +53,7 @@ export class PayerEmployeComponent implements OnInit {
 
   paiement! : Paiement;
 
-  employesEnActivites! : Employe[];
+  employesEnActivites : Employe[] = [];
 
   constructor(private employeService : EmployeService,
       private fb : FormBuilder,
@@ -69,6 +69,14 @@ export class PayerEmployeComponent implements OnInit {
           others : [null]
         }
       );
+
+      this.employeService.getAll()
+        .subscribe(
+          (data) => {
+            console.log(data)
+            this.employesEnActivites = data;
+          }
+        )
        }
 
   ngOnInit(): void {
