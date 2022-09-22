@@ -45,7 +45,7 @@ export class ViewEleveComponent implements OnInit {
           prenomNomMere : this.fb.control(this.eleve.prenomNomMere, [Validators.required]),
           aSavoir : this.fb.control(this.eleve.aSavoir, [Validators.required]),
           dateDebut : this.fb.control(this.eleve.dateDebut),
-          classe : this.fb.control(this.eleve.classe?.appelation),
+          classe : this.fb.control(this.eleve.classe?.appellation),
         }
       );
   }

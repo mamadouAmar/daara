@@ -40,7 +40,7 @@ export class ViewEmployeComponent implements OnInit {
       dateDebut: [this.employe.dateDebut ],
       profession : [this.employe.profession ],
       salaire : [this.employe.salaire, Validators.required],
-      classeGeree: [this.employe.classeGeree?.appelation ],
+      classeGeree: [this.employe.classeGeree?.appellation ],
     });
     this.employeFormGroup.disable();
   }

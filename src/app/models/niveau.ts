@@ -1,9 +1,9 @@
 export class Niveau {
 
-    public classeId! : String;
-    public appelation! : String;
-    public sommeInscription! : Number;
-    public mensualite! : Number;
+    public classeId! : string;
+    public appellation! : string;
+    public sommeInscription! : number;
+    public mensualite! : number;
 
     constructor(){}
 

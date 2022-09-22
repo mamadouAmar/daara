@@ -95,8 +95,8 @@
             <!-- <input matInput placeholder="classe" formControlName="classeGeree" /> -->
             <mat-label>classe geree</mat-label>
             <mat-select formControlName="classeGeree">
-              <mat-option *ngFor="let classe of classes" [value]="classe.appelation">
-                {{ classe.appelation.valueOf() }}
+              <mat-option *ngFor="let classe of classes" [value]="classe">
+                {{ classe.appellation }}
               </mat-option>
             </mat-select>
           </mat-form-field>

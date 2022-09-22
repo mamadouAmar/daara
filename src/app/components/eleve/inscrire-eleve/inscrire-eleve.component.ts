@@ -15,6 +15,7 @@ import * as _moment from 'moment';
 import { Moment} from 'moment';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { NiveauService } from 'src/app/service/niveau.service';
 
 
 // const moment = _rollupMoment || _moment;
@@ -45,9 +46,6 @@ export const YEAR_FORMAT = {
     }, 
     {
       provide : MAT_DATE_FORMATS, useValue : YEAR_FORMAT
-    },
-    {
-      provide : MAT_DATE_LOCALE, useValue : MAT_MOMENT_DATE_FORMATS
     }
   ]
 })
@@ -64,11 +62,20 @@ export class InscrireEleveComponent implements OnInit {
 
   constructor(
     private eleveService : EleveService,
+    private niveauService : NiveauService,
     private fb : FormBuilder,
     private route : ActivatedRoute,
     private location : Location,
     private router : Router
-    ) { }
+    ) {
+      niveauService.getAll()
+        .subscribe(
+          (data) => {
+            this.classes = data;
+            console.log(data);
+          }
+        )
+     }
 
   ngOnInit(): void {
     this.inscriptionFormGroup = this.fb.group(

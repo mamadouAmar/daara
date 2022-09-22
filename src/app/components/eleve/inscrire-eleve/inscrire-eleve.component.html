@@ -78,8 +78,7 @@
                         <mat-label>classe</mat-label>
                         <mat-select formControlName="classe">
                             <mat-option *ngFor="let classe of classes"
-                            [value]="classe.classeId">
-                        </mat-option>
+                            [value]="classe">{{ classe.classeId }}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
@@ -94,7 +93,7 @@
             </div>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button [disabled]="this.inscriptionFormGroup.valid" (click)="inscrireEleve()" type="submit">inscrire nouvel eleve</button>
+            <button mat-button [disabled]="!this.inscriptionFormGroup.valid" (click)="inscrireEleve()" type="submit">inscrire nouvel eleve</button>
             <button mat-button (click)="this.reset()" type="reset">annuler</button>
             <button mat-button (click)="this.retour()" >retour</button>
         </mat-card-actions>
