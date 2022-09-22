@@ -1,8 +1,8 @@
 export class Depense {
 
-    public depenseId? : Number;
-    public somme! : Number;
-    public depense! : String;
+    public depenseId? : number;
+    public somme! : number;
+    public depense! : string;
     public dateDepense!: Date;
 
     constructor()

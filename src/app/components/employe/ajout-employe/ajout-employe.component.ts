@@ -45,7 +45,6 @@ export class AjoutEmployeComponent implements OnInit{
         adresse: [null, Validators.required],
         numeroTelephone: [null, Validators.required],
         dateNaissance: [null, ],
-        dateDebut: [null, ],
         profession : [null, ],
         salaire : [null, Validators.required],
         classeGeree: [null, ],
@@ -68,6 +67,7 @@ export class AjoutEmployeComponent implements OnInit{
       this.employe.profession = this.ajouterEmployeForm.controls['profession'].value;
       this.employe.salaire = this.ajouterEmployeForm.controls['salaire'].value;
       this.employe.classeGeree = this.ajouterEmployeForm.controls['classeGeree'].value;
+      this.employe.dateDebut = new Date();
 
       this.employeService.postOne(this.employe)
         .subscribe(

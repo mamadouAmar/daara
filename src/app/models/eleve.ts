@@ -2,18 +2,19 @@ import { Niveau } from "./niveau";
 
 export class Eleve {
 
-    public eleveId? : Number; 
-    public prenom! : String;
-    public nom! : String; 
-    public prenomPere? : String;
-    public prenomNomMere? : String; 
+    public eleveId? : number; 
+    public prenom! : string;
+    public nom! : string; 
+    public prenomPere? : string;
+    public prenomNomMere? : string; 
     public dateNaissance! : Date; 
-    public addresse? : String; 
-    public numeroTelephone? : String;
+    public lieuDeNaissance! : String;
+    public addresse? : string; 
+    public numeroTelephone? : string;
     public dateDebut? : Date;
-    public classe? : Niveau;
-    public argentDePoche? : Number;
-    public aSavoir? : String;
+    public classe! : Niveau;
+    public argentDePoche? : number;
+    public aSavoir? : string;
     
     constructor(
         

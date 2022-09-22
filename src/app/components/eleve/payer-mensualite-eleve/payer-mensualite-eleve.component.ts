@@ -95,7 +95,7 @@ export class PayerMensualiteEleveComponent implements OnInit {
       this.mensualite.mois = this.mois;
       this.mensualite.eleveMensualite = this.mensualiteForm.controls['eleve'].value
       if(this.mensualiteForm.controls['somme'].value == null || this.mensualiteForm.controls['somme'].value == 0){
-        this.mensualite.somme = new Number(this.mensualite.eleveMensualite.classe?.mensualite.valueOf());
+        this.mensualite.somme = this.mensualite.eleveMensualite.classe.mensualite;
       }
       else{
         this.mensualite.somme = this.mensualiteForm.controls['somme'].value;

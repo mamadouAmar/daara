@@ -2,14 +2,14 @@ import { Eleve } from "./eleve";
 
 export class Mensualite {
 
-    mensualiteId? : Number;
-    annee! : Number;
-    mois! : Number;
+    mensualiteId? : number;
+    annee! : number;
+    mois! : number;
     datePaiement! : Date;
     eleveMensualite! : Eleve;
-    somme! : Number;
-    supplementArgent? : Number;
-    others? : String
+    somme : number = 0;
+    supplementArgent? : number;
+    others? : string
 
     constructor(
         

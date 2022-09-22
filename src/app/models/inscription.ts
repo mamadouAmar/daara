@@ -2,12 +2,12 @@ import { Eleve } from "./eleve";
 
 export class Inscription {
     
-    inscriptionId! : Number;
+    inscriptionId! : number;
     dateInscription! : Date;
-    anneeInscription! : Number;
-    classe! : String;
-    eleveInscrit! : Eleve;
-    somme! : Number;
+    anneeInscription! : number;
+    classe! : string;
+    eleve! : Eleve;
+    somme! : number;
 
     constructor(
         

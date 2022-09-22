@@ -18,20 +18,6 @@ import { Location } from '@angular/common';
 import { NiveauService } from 'src/app/service/niveau.service';
 
 
-// const moment = _rollupMoment || _moment;
-
-const moment = _moment;
-
-export const YEAR_FORMAT = {
-  parse : {
-    dateInput : 'YYYY'
-  },
-  display : {
-    dateInput: 'YYYY',
-    monthYearLabel: 'YYYY',
-    monthYearA11yLabel: 'YYYY',
-  }
-}
 
 
 @Component({
@@ -39,14 +25,6 @@ export const YEAR_FORMAT = {
   templateUrl: './inscrire-eleve.component.html',
   styleUrls: ['./inscrire-eleve.component.css'],
   providers : [
-    {
-      provide : DateAdapter,
-      useClass : MomentDateAdapter,
-      deps : [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
-    }, 
-    {
-      provide : MAT_DATE_FORMATS, useValue : YEAR_FORMAT
-    }
   ]
 })
 export class InscrireEleveComponent implements OnInit {
@@ -58,6 +36,7 @@ export class InscrireEleveComponent implements OnInit {
 
   inscriptionFormGroup! : FormGroup;
 
+  year : number = new Date().getFullYear();
 
 
   constructor(
@@ -83,26 +62,20 @@ export class InscrireEleveComponent implements OnInit {
         prenom : this.fb.control('', [Validators.required]),
         nom : this.fb.control('', [Validators.required]),
         dateNaissance : this.fb.control('', [Validators.required]),
+        lieuDeNaissance : this.fb.control('', [Validators.required]),
         adresse : this.fb.control('', [Validators.required]),
         prenomPere : this.fb.control('', [Validators.required]),
         prenomNomMere : this.fb.control('', [Validators.required]),
+        numeroTelephone : this.fb.control('', [Validators.required]),
         aSavoir : this.fb.control('', [Validators.required]),
         dateDebut : this.fb.control(''),
         classe : this.fb.control(''),
-        anneeInscription : this.fb.control('', [Validators.required]), 
+        anneeInscription : this.fb.control(this.year, [Validators.required]), 
         somme : this.fb.control(''),
       }
     );
   }
 
-
-
-  setYear(normalizedYear :Moment, datepicker: MatDatepicker<Moment>){
-    // this.inscriptionFormGroup.controls['anneeInscription'].set;
-    // ctrlValue = normalizedYear.year()
-    this.inscriptionFormGroup.controls['anneeInscription'].setValue(normalizedYear.year().toString());
-    datepicker.close()
-  }
 
   inscrireEleve(){
     if(this.inscriptionFormGroup.valid){
@@ -120,8 +93,9 @@ export class InscrireEleveComponent implements OnInit {
       this.inscription.anneeInscription = this.inscriptionFormGroup.get('anneeInscription')?.value
       this.inscription.somme = this.inscriptionFormGroup.controls['somme'].value;
       this.inscription.classe = this.inscriptionFormGroup.controls['classe'].value;
-      this.inscription.eleveInscrit = {...this.nouvelEleve};
+      this.inscription.eleve = this.nouvelEleve;
       this.inscription.dateInscription = new Date();
+      console.log(this.inscription)
 
       this.eleveService.inscrireEleve(this.inscription).subscribe(
         (data) => {

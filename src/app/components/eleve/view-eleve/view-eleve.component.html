@@ -55,6 +55,15 @@
                 </textarea>
             </mat-form-field>
         </div>
+        <div class="col">
+            <mat-form-field class="full-width">
+                <mat-label>classe</mat-label>
+                <mat-select formControlName="classe">
+                    <mat-option *ngFor="let classe of classes"
+                    [value]="classe">{{ classe.classeId }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
     </div>
     </form>
     <mat-divider></mat-divider>
