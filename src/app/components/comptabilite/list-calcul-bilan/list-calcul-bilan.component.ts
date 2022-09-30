@@ -19,7 +19,7 @@ export class ListCalculBilanComponent implements OnInit {
 
   bilans : Bilan[] = []
 
-  displayedColumns = ['dateBilan','dateDebut', 'dateFin' ,'totalEntrees', 'totalSorties', 'actions']
+  displayedColumns = ['dateBilan','debutBilan', 'finBilan' ,'totalEntrees', 'totalSorties', 'actions']
 
   constructor(private bilanService : BilanService,
     private route : ActivatedRoute,
@@ -33,6 +33,7 @@ export class ListCalculBilanComponent implements OnInit {
         .subscribe(
           (data) => {
             this.bilans = data;
+            console.log(this.bilans)
             this.dataSource = new MatTableDataSource(this.bilans);
           }
         );

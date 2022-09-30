@@ -3,7 +3,7 @@ export class Entree {
 
     constructor(
         public dateEntre : Date,
-        public typeEntree : string,
+        public sourceEntree : string,
         public somme : number
     ){}
 }
