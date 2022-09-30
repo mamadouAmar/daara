@@ -37,7 +37,7 @@
                         </mat-datepicker>
                     </mat-form-field>
                 </div>
-                <div class="col">
+                <!--<div class="col">
                     <mat-form-field class="full-width">
                         <mat-label>date de paiment</mat-label>
                         <input matInput [matDatepicker]="picker" formControlName="datePaiement" [disabled]="disabled">
@@ -45,19 +45,20 @@
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
+                </div> -->
                 <div class="col">
-                    <mat-form-field class="half-width">
+                    <mat-form-field class="full-width">
                         <mat-label>other</mat-label>
                         <input type="text" matInput formControlName="others">
                     </mat-form-field>
                 </div>
             </div>
+            <div class="row">
+               
+            </div>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button color="primary" type="submit" (click)="payerEmploye()">payer employe</button>
+            <button mat-raised-button color="primary" type="submit">payer employe</button>
             <button mat-raised-button color="" (click)="reset()" >reset</button>
             <button mat-raised-button color="" (click)="retour()">retour</button>
           </mat-card-actions>

@@ -63,8 +63,7 @@ export class PayerEmployeComponent implements OnInit {
       this.paiementEmployeForm = this.fb.group(
         {
           employe : [null, Validators.required],
-          moisAnnee : [null, Validators.required],
-          datePaiement : [moment().toString(), ],
+          moisAnnee : [moment(), Validators.required],
           somme : [null, ],
           others : [null]
         }
@@ -80,28 +79,30 @@ export class PayerEmployeComponent implements OnInit {
        }
 
   ngOnInit(): void {
+    this.year = new Date().getFullYear();
+    this.mois = new Date().getMonth();
   }
 
-  disabled = true;
-
-  mois ! : number;
-  year ! : number;
+  mois! : number;
+  year! : number;
 
   payerEmploye(){
     if(this.paiementEmployeForm.valid){
       this.paiement = new Paiement();
       this.paiement.annee = this.year;
       this.paiement.mois = this.mois;
-      this.paiement.travailleur = this.paiementEmployeForm.controls['employe'].value();
-      if(this.paiementEmployeForm.controls['somme'].value() == null 
-            || this.paiementEmployeForm.controls['somme'].value() == 0){
+      this.paiement.travailleur = this.paiementEmployeForm.controls['employe'].value;
+      if(this.paiementEmployeForm.controls['somme'].value == null 
+            || this.paiementEmployeForm.controls['somme'].value == 0){
         this.paiement.somme = this.paiement.travailleur.salaire
       }
       else {
-        this.paiement.somme = this.paiementEmployeForm.controls['somme'].value();
+        this.paiement.somme = this.paiementEmployeForm.controls['somme'].value;
       }
-      this.paiement.others = this.paiementEmployeForm.controls['others'].value();
+      this.paiement.others = this.paiementEmployeForm.controls['others'].value;
       this.paiement.datePaiement = new Date();
+
+      console.log(this.paiement);
 
       this.employeService.payer_employe(this.paiement)
         .subscribe(

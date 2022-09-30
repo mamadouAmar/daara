@@ -7,10 +7,10 @@ export class Bilan {
     public totalSorties? : number;
     public gain? : number;
     public dateBilan? : Date;
-    public debut! : Date;
-    public fin! : Date;
-    public entrees? : Entree[] = [];
-    public sorties? : Sortie[] = [];
+    public debutBilan! : Date;
+    public finBilan! : Date;
+    public entrees : Entree[] = [];
+    public sorties : Sortie[] = [];
 
     constructor(
         

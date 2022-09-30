@@ -33,8 +33,8 @@ export class FormulaireCalculBilanComponent implements OnInit {
   calculerBilan(){
     if (this.calculBilanFormGroup.valid){
       let bilan = new Bilan();
-      bilan.debut = this.calculBilanFormGroup.controls['dateDebut'].value;
-      bilan.fin = this.calculBilanFormGroup.controls['dateFin'].value;
+      bilan.debutBilan = this.calculBilanFormGroup.controls['dateDebut'].value;
+      bilan.finBilan = this.calculBilanFormGroup.controls['dateFin'].value;
       bilan.dateBilan = new Date();
       this.bilanService.calculerBilan(bilan)
         .subscribe(

@@ -38,19 +38,26 @@ export class AfficherBilanComponent implements OnInit {
         (data) => {
           console.log(data);
           this.bilan = new Bilan();
+          this.bilan.entrees = []
           this.bilan = data;
-          this.entreeDataSource = new MatTableDataSource(this.bilan.entrees);
-          this.sortiesDataSource = new MatTableDataSource(this.bilan.sorties);
+          this.entreeDataSource = new MatTableDataSource<Entree>(this.bilan.entrees);
+          this.sortiesDataSource = new MatTableDataSource<Sortie>(this.bilan.sorties);
           this.bilan.totalEntre = 0;
           this.bilan.totalSorties = 0;
           let i:number = 0;
-          // for (let i in this.bilan.entrees) {
-          //   this.bilan.totalEntre += this.bilan.entrees[i].somme;
-          //   this.bilan.totalSorties += this.bilan.entrees[i].somme;
-          // }
+          for (let i of this.bilan?.entrees) {
+            this.bilan.totalEntre += i.somme;
+          }
+          for (let i of this.bilan?.sorties) {
+            this.bilan.totalSorties += i.somme;
+          }
           this.bilan.gain = this.bilan.totalEntre-this.bilan.totalSorties;
         }
       )
+  }
+
+  retour(){
+    this.location.back();
   }
 
 }

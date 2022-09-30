@@ -1,32 +1,33 @@
 <div class="row">
-        <table class="col" mat-table class="full-width-table">
+        <table class="col" mat-table class="full-width-table" [dataSource]="this.dataSource">
+            
             <ng-container matColumnDef="dateBilan">
                 <th mat-header-cell *matHeaderCellDef>
                     date bilan
                 </th>
-                <td mat-cell *matCellDef="let row"> {{ row.dateBilan }} </td>
+                <td mat-cell *matCellDef="let row"> {{ row.dateBilan | date : 'short'}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="dateDebut">
+            <ng-container matColumnDef="debutBilan">
                 <th mat-header-cell *matHeaderCellDef>
                     date debut
                 </th>
-                <td mat-cell *matCellDef="let row"> {{ row.dateDebut }} </td>
+                <td mat-cell *matCellDef="let row"> {{ row.debutBilan | date : 'shortDate' }} </td>
 
             </ng-container>
 
-            <ng-container matColumnDef="dateFin">
+            <ng-container matColumnDef="finBilan">
                 <th mat-header-cell *matHeaderCellDef>
                     date fin
                 </th>
-                <td mat-cell *matCellDef="let row"> {{ row.dateFin }} </td>
+                <td mat-cell *matCellDef="let row"> {{ row.finBilan | date : 'shortDate' }} </td>
             </ng-container>
 
             <ng-container matColumnDef="totalEntrees">
                 <th mat-header-cell *matHeaderCellDef>
                     total entree
                 </th>
-                <td mat-cell *matCellDef="let row"> {{ row.totalEntrees }} </td>
+                <td mat-cell *matCellDef="let row"> {{ row.totalEntre }} </td>
             </ng-container>
 
             <ng-container matColumnDef="totalSorties">

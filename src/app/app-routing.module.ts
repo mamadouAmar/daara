@@ -55,8 +55,9 @@ const routes: Routes = [
     {path: 'ajout-edit', component: AjoutDepenseComponent},
     {path: ':id', component: ViewDepenseComponent}
   ]},
-  {path : 'bilan', component : PageBilanComponent,
+  {path : 'bilan',
   children : [
+    {path : '', component : PageBilanComponent},
     {path: ':id', component: AfficherBilanComponent},
   ] 
 }

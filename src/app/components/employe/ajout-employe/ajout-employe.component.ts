@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Employe } from 'src/app/models/employe';
 import { Niveau } from 'src/app/models/niveau';
 import { EmployeService } from 'src/app/service/employe.service';
+import { NiveauService } from 'src/app/service/niveau.service';
 
 @Component({
   selector: 'app-ajout-employe',
@@ -18,11 +19,12 @@ export class AjoutEmployeComponent implements OnInit{
 
   professions! : String[];
 
-  classes! : Niveau[];
+  classes : Niveau[] = [];
 
   employe! : Employe;
 
-  ajouterEmployeForm! : FormGroup
+  ajouterEmployeForm! : FormGroup;
+
 
 
   retour(){
@@ -37,7 +39,8 @@ export class AjoutEmployeComponent implements OnInit{
       private route : ActivatedRoute,
       private router : Router,
       private location : Location,
-      private employeService : EmployeService) {
+      private employeService : EmployeService,
+      private niveauService : NiveauService) {
 
       this.ajouterEmployeForm = this.fb.group({
         prenom: [null, Validators.required],
@@ -50,7 +53,13 @@ export class AjoutEmployeComponent implements OnInit{
         classeGeree: [null, ],
       });
       
-
+      niveauService.getAll()
+        .subscribe(
+          (data) => {
+            console.log(data);
+            this.classes = data;
+          }
+        )
   }
   ngOnInit(): void {
     

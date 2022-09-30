@@ -2,8 +2,8 @@ export class Sortie {
     public idSortie? : number;
     
     constructor(
-        public dateSortie : Date,
-        public typeSortie : string,
+        public date : Date,
+        public sourceSortie : string,
         public somme : number
     ){}
 }
