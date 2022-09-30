@@ -68,9 +68,8 @@ export class PayerMensualiteEleveComponent implements OnInit {
       this.mensualiteForm = this.fb.group(
         {
           eleve : [null, Validators.required],
-          moisAnnee : [null, Validators.required],
-          datePaiement : [new Date().toDateString(), Validators.required],
-          somme : [null, Validators.required],
+          moisAnnee : [moment(), Validators.required],
+          somme : [null],
           supplementArgent : [null],
           others : [null],
         }
@@ -93,9 +92,9 @@ export class PayerMensualiteEleveComponent implements OnInit {
       this.mensualite = new Mensualite();
       this.mensualite.annee = this.year;
       this.mensualite.mois = this.mois;
-      this.mensualite.eleveMensualite = this.mensualiteForm.controls['eleve'].value
+      this.mensualite.eleve = this.mensualiteForm.controls['eleve'].value
       if(this.mensualiteForm.controls['somme'].value == null || this.mensualiteForm.controls['somme'].value == 0){
-        this.mensualite.somme = this.mensualite.eleveMensualite.classe.mensualite;
+        this.mensualite.somme = this.mensualite.eleve.classe.mensualite;
       }
       else{
         this.mensualite.somme = this.mensualiteForm.controls['somme'].value;
@@ -103,10 +102,15 @@ export class PayerMensualiteEleveComponent implements OnInit {
       this.mensualite.datePaiement = new Date();
       this.mensualite.supplementArgent = this.mensualiteForm.controls['supplementArgent'].value;
       this.mensualite.others = this.mensualiteForm.controls['others'].value;
+      this.mensualite.mois = this.mensualiteForm.controls['moisAnnee'].value.month;
+      this.mensualite.annee = this.mensualiteForm.controls['moisAnnee'].value.year;
+
+      console.log(this.mensualite)
 
       this.eleveService.reglerMensualiteEleve(this.mensualite)
         .subscribe(
           (data) => {
+            console.log(this.mensualite)
             console.log(data);
           }
         )
@@ -123,9 +127,7 @@ export class PayerMensualiteEleveComponent implements OnInit {
   }
 
   setMonthAndYear(normalizedMonthAndYear: Moment, datepicker: MatDatepicker<Moment>) {
-    let ctrlValue = this.mensualiteForm.controls['moisAnnee'].value!;
-    this.mois = normalizedMonthAndYear.month();
-    this.year = normalizedMonthAndYear.year();
+    const ctrlValue = this.mensualiteForm.controls['moisAnnee'].value!;
     ctrlValue.month(normalizedMonthAndYear.month());
     ctrlValue.year(normalizedMonthAndYear.year());
     this.mensualiteForm.controls['moisAnnee'].setValue(ctrlValue);

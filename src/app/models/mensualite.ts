@@ -6,7 +6,7 @@ export class Mensualite {
     annee! : number;
     mois! : number;
     datePaiement! : Date;
-    eleveMensualite! : Eleve;
+    eleve! : Eleve;
     somme : number = 0;
     supplementArgent? : number;
     others? : string
