@@ -133,5 +133,4 @@ export class PayerMensualiteEleveComponent implements OnInit {
     this.mensualiteForm.controls['moisAnnee'].setValue(ctrlValue);
     datepicker.close();
   }
-
 }

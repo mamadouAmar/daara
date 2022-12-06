@@ -11,16 +11,14 @@
 <form [formGroup]="this.rechercheFormGroup" (ngSubmit)="searchEmploye()">
   <div class="row">
     <div class="col">
-      <mat-form-field >
-        <mat-label>Rechercher un élève</mat-label>
+      <mat-form-field class="full-width">
+        <mat-label>Rechercher un employé</mat-label>
         <input matInput formControlName="recherche" >
       </mat-form-field>
     </div>
     <div class="col">
-      <button mat-raised-button  type="submit" (click)="searchEmploye()">rechercher</button>
-    </div>
-    <div class="col">
-      <button mat-button type="reset" class="col">reset</button>
+      <button mat-raised-button class="ml-5" color="primary" type="submit" (click)="searchEmploye()">rechercher</button>
+      <button mat-button type="reset" color="danger" class="ml-5">reset</button>
     </div>
   </div>
 </form>

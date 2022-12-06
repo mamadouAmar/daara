@@ -1,7 +1,7 @@
 <form [formGroup]="mensualiteForm" (ngSubmit)="payerMensualite()">
     <mat-card class="shipping-card">
         <mat-card-header>
-            <mat-card-title>Payer une mensualite</mat-card-title>
+            <mat-card-title>Payer une mensualite d'un élève</mat-card-title>
         </mat-card-header>
 
         <mat-card-content>
@@ -55,7 +55,7 @@
             </div>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button color="primary" type="submit">payer mensualite</button>
+            <button mat-raised-button color="primary" type="submit">Payer</button>
             <button mat-raised-button color="" (click)="reset()" >reset</button>
             <button mat-raised-button color="" (click)="retour()">retour</button>
           </mat-card-actions>
