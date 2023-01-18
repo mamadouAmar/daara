@@ -15,8 +15,8 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
+  <mat-sidenav-content class="container-principale">
+    <mat-toolbar class="sidenav-header">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -27,8 +27,9 @@
       </button>
       <span>Daara Adja Bintou Thiaw</span>
     </mat-toolbar>
-
-    <router-outlet></router-outlet>
+    <div class="content-page">
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
   
 </mat-sidenav-container>
