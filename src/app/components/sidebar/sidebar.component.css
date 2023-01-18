@@ -21,6 +21,7 @@
 
 .sidenav-header {
   border: 1px solid black;
+  align-self: flex-start;
 }
 
 .container-principale {
@@ -36,5 +37,6 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  height: 95%;
 }
