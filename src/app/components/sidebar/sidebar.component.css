@@ -6,7 +6,7 @@
 
 .sidenav {
   width: 200px;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
 
 .sidenav .mat-toolbar {
@@ -20,14 +20,14 @@
 }
 
 .sidenav-header {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   align-self: flex-start;
 }
 
 .container-principale {
   display: flex;
   flex-direction: column;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   margin-bottom: 50px;
 }
 
@@ -40,3 +40,5 @@
   justify-content: flex-start;
   height: 95%;
 }
+
+
