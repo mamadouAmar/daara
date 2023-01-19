@@ -47,16 +47,26 @@
 }
 
 button {
-  margin: 10px 10px 5px 0px;
-}
-
-.mat-form-field {
-  width: 100%;
+  margin: 5px 5px 5px 0px;
 }
 
 @media screen and (max-width: 400px) {
   th {
     padding: 0px !important;
     margin: 0px !important;
+  }
+
+  .buttons-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-flow: row;
+  }
+
+  .recherche-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
   }
 }

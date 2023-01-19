@@ -24,6 +24,8 @@ export class ListDepenseComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['depenseId', 'dateDepense', 'somme', 'depense', 'action'];
 
+  filtrerFormGroup: any;
+
   constructor(private depenseService : DepenseService,
       private route : ActivatedRoute,
       private router : Router,
@@ -60,5 +62,9 @@ export class ListDepenseComponent implements AfterViewInit {
 
   onClickOnPlus(row : Depense){
     this.openDialog(row);
+  }
+
+  filter(){
+    
   }
 }

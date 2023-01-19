@@ -55,4 +55,18 @@ button {
     padding: 0px !important;
     margin: 0px !important;
   }
+
+  .buttons-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-flow: row;
+  }
+
+  .recherche-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+  }
 }

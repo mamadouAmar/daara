@@ -1,3 +1,72 @@
 .full-width-table {
   width: 100%;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+
+.ecran-liste-eleves{
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: scroll;
+}
+
+.buttons-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-flow: row;
+}
+
+.recherche-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: flex-start;
+}
+
+button {
+  margin: 5px 5px 5px 0px;
+}
+
+@media screen and (max-width: 400px) {
+  th {
+    padding: 0px !important;
+    margin: 0px !important;
+  }
+
+  .buttons-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-flow: row;
+  }
+
+  .recherche-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+  }
+}
