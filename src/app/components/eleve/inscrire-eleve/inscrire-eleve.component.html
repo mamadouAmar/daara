@@ -72,7 +72,6 @@
                     </mat-form-field>
                 </div>
             </div>
-            <mat-divider></mat-divider>
             <div class="row">
                 <div class="col">
                     <mat-form-field class="full-width">
@@ -99,10 +98,11 @@
                 </div>
             </div>
         </mat-card-content>
+        <mat-divider></mat-divider>
         <mat-card-actions>
-            <button mat-button [disabled]="!this.inscriptionFormGroup.valid" type="submit">Inscrire</button>
-            <button mat-button (click)="this.reset()" type="reset">Annuler</button>
-            <button mat-button (click)="this.retour()" >Retour</button>
+            <button mat-raised-button [disabled]="!this.inscriptionFormGroup.valid" type="submit">Inscrire</button>
+            <button mat-raised-button (click)="this.reset()" type="reset">Annuler</button>
+            <button mat-raised-button (click)="this.retour()" >Retour</button>
         </mat-card-actions>
         
     </mat-card>
