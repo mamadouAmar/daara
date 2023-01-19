@@ -19,13 +19,13 @@ const moment =  _moment;
 // https://momentjs.com/docs/#/displaying/format/
 export const MY_FORMATS = {
   parse: {
-    dateInput: 'MM/YYYY',
+    dateInput: 'MMM YYYY',
   },
   display: {
-    dateInput: 'MM/YYYY',
+    dateInput: 'MMM YYYY',
     monthYearLabel: 'MMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY',
+    // dateA11yLabel: 'LL',
+    // monthYearA11yLabel: 'MMMM YYYY',
   },
 };
 

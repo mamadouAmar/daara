@@ -51,8 +51,7 @@ button {
 }
 
 .mat-form-field {
-  border: 1px solid maroon;
-  width: 80%;
+  width: 100%;
 }
 
 @media screen and (max-width: 400px) {

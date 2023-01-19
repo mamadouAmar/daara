@@ -10,7 +10,7 @@
           <mat-form-field class="full-width">
             <input matInput placeholder="prenom" formControlName="prenom">
             <mat-error *ngIf="ajouterEmployeForm.controls['prenom'].hasError('required')">
-              Le prenom name est <strong>requis</strong>
+              Le prenom est <strong>requis</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -90,7 +90,6 @@
           </mat-form-field>
         </div>
       </div>
-
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit">ajouter employe</button>

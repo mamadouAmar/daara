@@ -1,31 +1,29 @@
-<br>
-
-<section>
-  <button mat-button (click)="onClickAjouterEmploye()">ajouter nouvel employe</button>
-  <button mat-button (click)="onClickPayerEmploye()">payer employe</button>
-  <button mat-button (click)="onClickPaiement()">paiements</button>
+<div class="ecran-liste-eleves">
+<section class="buttons-nav">
+  <button mat-raised-button (click)="onClickAjouterEmploye()">ajouter employe</button>
+  <button mat-raised-button (click)="onClickPayerEmploye()">payer employe</button>
+  <button mat-raised-button (click)="onClickPaiement()">paiements</button>
 </section>
-
+<mat-divider></mat-divider>
 <br>
 
 <form [formGroup]="this.rechercheFormGroup" (ngSubmit)="searchEmploye()">
-  <div class="row">
-    <div class="col">
-      <mat-form-field class="full-width">
+  <div class="recherche-form">
+      <mat-form-field class="col">
         <mat-label>Rechercher un employé</mat-label>
         <input matInput formControlName="recherche" >
       </mat-form-field>
-    </div>
     <div class="col">
       <button mat-raised-button class="ml-5" color="primary" type="submit" (click)="searchEmploye()">rechercher</button>
-      <button mat-button type="reset" color="danger" class="ml-5">reset</button>
+      <button mat-raised-button type="reset" color="danger" class="ml-5">reset</button>
     </div>
   </div>
 </form>
 
+<mat-divider></mat-divider>
 <br>
 
-<div class="mat-elevation-z5">
+<div class="mat-elevation-z5 tableau-content">
   <table mat-table class="full-width-table" matSort aria-label="Elements">
     <!-- Id Column -->
     <ng-container matColumnDef="interneId">
@@ -89,3 +87,5 @@
       aria-label="Select page">
   </mat-paginator>
 </div>
+</div>
+
