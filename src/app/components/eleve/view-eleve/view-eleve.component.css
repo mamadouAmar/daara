@@ -1,32 +1,46 @@
 .full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.shipping-card {
+  min-width: 120px;
+  margin: 20px auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+
+@media screen and ((max-width: 600px)) {
+  .row {
+    flex-direction: column;
+  }
+  div.col {
     width: 100%;
   }
-  
-  .half-width {
-    width: 50%;
-  }
-  
-  .shipping-card {
-    min-width: 120px;
-    margin: 20px auto;
-  }
-  
-  .mat-radio-button {
-    display: block;
-    margin: 5px 0;
-  }
-  
-  .row {
+
+  .buttons {
     display: flex;
     flex-direction: row;
+    align-content: space-between;
+    flex-flow: row wrap;
+    flex-basis: auto;
+    flex-grow: 1;
   }
-  
-  .col {
-    flex: 1;
-    margin-right: 20px;
-  }
-  
-  .col:last-child {
-    margin-right: 0;
-  }
-  
+
+}
