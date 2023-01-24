@@ -7,6 +7,7 @@ import { MatTable } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Depense } from 'src/app/models/depense';
 import { DepenseService } from 'src/app/service/depense.service';
+import { AjoutDepenseComponent } from '../ajout-depense/ajout-depense.component';
 import { ViewDepenseComponent } from '../view-depense/view-depense.component';
 import { ListDepenseDataSource } from './list-depense-datasource';
 
@@ -34,6 +35,15 @@ export class ListDepenseComponent implements AfterViewInit {
     this.dataSource = new ListDepenseDataSource(depenseService);
   }
 
+  private openDialogForAdd(){
+    const dialogRef = this.dialog.open(AjoutDepenseComponent);
+    dialogRef.afterOpened().subscribe(
+      result => {
+        console.log('The dialog was closed');
+      }
+    )
+  }
+
   private openDialog(row : Depense) : void {
     this.dialog.open(ViewDepenseComponent,
       {
@@ -49,7 +59,8 @@ export class ListDepenseComponent implements AfterViewInit {
   }
 
   onClickAjouterDepense(){
-    this.router.navigate(['ajout-edit'], {relativeTo : this.route})
+    //this.router.navigate(['ajout-edit'], {relativeTo : this.route})
+    this.openDialogForAdd();
   }
 
   onClickOnModifier(row : Depense){

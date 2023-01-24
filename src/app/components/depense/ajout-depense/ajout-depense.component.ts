@@ -4,6 +4,7 @@ import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Depense } from 'src/app/models/depense';
 import { DepenseService } from 'src/app/service/depense.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-ajout-depense',
@@ -23,7 +24,9 @@ export class AjoutDepenseComponent {
 
   
 
-  constructor(private fb: UntypedFormBuilder,
+  constructor(
+    public dialogRef : MatDialogRef<AjoutDepenseComponent>,
+    private fb: UntypedFormBuilder,
       private route : ActivatedRoute,
       private router : Router,
       private location : Location,
@@ -52,5 +55,9 @@ export class AjoutDepenseComponent {
 
   reset(){
     this.ajoutDepenseForm.reset();
+  }
+
+  onNoClick() {
+    this.dialogRef.close();
   }
 }

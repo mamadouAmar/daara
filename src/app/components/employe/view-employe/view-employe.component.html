@@ -79,11 +79,23 @@
     </div>
 
     <mat-divider></mat-divider>
-    <mat-card-actions>
+    <mat-card-actions class="buttons">
         <button *ngIf="!this.modifier" mat-button (click)="modifierEmploye()">modifier</button>
         <button *ngIf="this.modifier" mat-button (click)="enregistrer()">enregistrer</button>
-        <button *ngIf="!this.modifier" mat-button (click)="payerSalaire()">payer salaire</button>
         <button *ngIf="!this.modifier" mat-button (click)="supprimerEmploye()">supprimer</button>
         <button mat-button (click)="retour()">retour</button>
     </mat-card-actions>
 </mat-card>
+
+
+<mat-accordion class="accordion">
+  <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+          <mat-panel-title><h4>Paiements</h4></mat-panel-title>
+      </mat-expansion-panel-header>
+      <button *ngIf="!this.modifier" mat-button (click)="payerSalaire()">payer salaire</button>
+      <div>
+          <!-- tableau des mensualites  -->
+      </div>
+  </mat-expansion-panel>
+</mat-accordion>

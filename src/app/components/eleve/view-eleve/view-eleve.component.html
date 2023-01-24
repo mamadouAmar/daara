@@ -78,9 +78,29 @@
     <mat-card-actions class="buttons">
         <button mat-raised-button *ngIf="!this.modifier" mat-button (click)="modifierEleve()">Modifier</button>
         <button mat-raised-button *ngIf="this.modifier" mat-button (click)="enregistrer()">Enregistrer</button>
-        <button mat-raised-button *ngIf="!this.modifier" mat-button (click)="payerMensualite()">Payer</button>
-        <button mat-raised-button *ngIf="!this.modifier" mat-button (click)="reinscrireEleve()">Reinscrire</button>
         <button mat-raised-button *ngIf="!this.modifier" mat-button (click)="supprimerEleve()">Supprimer</button>
         <button mat-raised-button (click)="retour()">retour</button>
     </mat-card-actions>
 </mat-card>
+
+<mat-accordion multi>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title><h4>Mensualites</h4></mat-panel-title>
+        </mat-expansion-panel-header>
+        <button mat-raised-button (click)="payerMensualite()">Payer</button>
+        <div>
+            <!-- tableau des mensualites  -->
+        </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title><h4>Inscriptions</h4></mat-panel-title>
+        </mat-expansion-panel-header>
+        <button mat-raised-button (click)="reinscrireEleve()">Reinscrire</button>
+        <div>
+            <!-- tableau des mensualites  -->
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

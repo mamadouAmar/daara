@@ -53,6 +53,7 @@ import { ListCalculBilanComponent } from './components/comptabilite/list-calcul-
 import { AfficherBilanComponent } from './components/comptabilite/afficher-bilan/afficher-bilan.component';
 import { EntreesComponent } from './components/archive/dossier/entrees/entrees.component';
 import { SortiesComponent } from './components/archive/dossier/sorties/sorties.component';
+import {MatAccordion, MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -113,6 +114,7 @@ import { SortiesComponent } from './components/archive/dossier/sorties/sorties.c
     MatDialogModule,
     MatDatepickerModule,
     MatMomentDateModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
