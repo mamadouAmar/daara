@@ -29,9 +29,18 @@
             </table>
         </div>
         <br>
-        <!-- Sorties  -->
+        <mat-divider></mat-divider>
+
+        <br>
+        <div class="row">
+            <div class="col"> total entrees :  {{bilan.totalEntre}} </div>
+            <div class="col"> total sorties :  {{bilan.totalSorties}} </div>
+            <div class="col"> total bilan :  {{bilan.gain}} </div>
+        </div>
+        <br>
         <mat-divider></mat-divider>
         <br>
+        <!-- Sorties  -->
         <div class="mat-elevation-z5 row">
             <table mat-table class="full-with-table col" [dataSource]="this.sortiesDataSource">
                 <ng-container matColumnDef="date">
@@ -53,22 +62,13 @@
         <br>
         <!-- Calcul -->
         <mat-divider></mat-divider>
-        <br>
-        <div class="row">
-            <div class="col"> total entrees :  {{bilan.totalEntre}} </div>
-            <div class="col"> total sorties :  {{bilan.totalSorties}} </div>
-            <div class="col"> total bilan :  {{bilan.gain}} </div>
-        </div>
-        <br>
-        <mat-divider></mat-divider>
-        <br>
+        
     </mat-card-content>
    
     <mat-card-footer>
         <mat-card-actions>
             <button mat-button>imprimer</button>
             <button mat-button (click)="retour()">retour</button>
-            <button mat-button>modifier</button>
             <button mat-button color="danger">supprimer</button>
         </mat-card-actions>
     </mat-card-footer>
