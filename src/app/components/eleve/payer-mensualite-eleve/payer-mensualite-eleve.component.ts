@@ -61,9 +61,8 @@ export class PayerMensualiteEleveComponent implements OnInit {
 
   constructor(private eleveService : EleveService,
     private fb : FormBuilder,
-    private location : Location,
-    private router : Router,
-    private route : ActivatedRoute) {
+    private location : Location
+    ) {
 
       this.mensualiteForm = this.fb.group(
         {

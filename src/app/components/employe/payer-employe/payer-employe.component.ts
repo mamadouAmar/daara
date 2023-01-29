@@ -57,8 +57,6 @@ export class PayerEmployeComponent implements OnInit {
 
   constructor(private employeService : EmployeService,
       private fb : FormBuilder,
-      private route : ActivatedRoute,
-      private router : Router,
       private location : Location) {
       this.paiementEmployeForm = this.fb.group(
         {

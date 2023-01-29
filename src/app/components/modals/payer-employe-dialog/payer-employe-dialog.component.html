@@ -1,8 +1,34 @@
-<form action="">
+<form [formGroup]="paiementEmployeForm" (ngSubmit)="payerEmploye()">
     <div mat-dialog-title>Payer salaire employe</div>
-    <div mat-dialog-content></div>
+    <div mat-dialog-content>
+        <div class="row">
+                <mat-form-field class="full-width">
+                    <mat-label>salaire</mat-label>
+                    <input type="number" matInput formControlName="somme">
+                </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field class="full-width">
+                <mat-label>Month and Year</mat-label>
+                <input matInput [matDatepicker]="dp" formControlName="moisAnnee">
+                <mat-hint>MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp
+                                startView="multi-year"
+                                (monthSelected)="setMonthAndYear($event, dp)"
+                                panelClass="example-month-picker">
+                </mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field class="full-width">
+                <mat-label>other</mat-label>
+                <input type="text" matInput formControlName="others">
+            </mat-form-field>
+        </div>
+    </div>
     <div mat-dialog-actions>
-        <button mat-raised-button>Enregistrer</button>
+        <button mat-raised-button type="submit">Enregistrer</button>
         <button mat-raised-button mat-dialog-close>Annuler</button>
     </div>
 </form>
