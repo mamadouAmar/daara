@@ -54,6 +54,9 @@ import { AfficherBilanComponent } from './components/comptabilite/afficher-bilan
 import { EntreesComponent } from './components/archive/dossier/entrees/entrees.component';
 import { SortiesComponent } from './components/archive/dossier/sorties/sorties.component';
 import {MatAccordion, MatExpansionModule} from '@angular/material/expansion';
+import { PayerMensualiteDialogComponent } from './components/modals/payer-mensualite-dialog/payer-mensualite-dialog.component';
+import { ReinscriptionDialogComponent } from './components/modals/reinscription-dialog/reinscription-dialog.component';
+import { PayerEmployeDialogComponent } from './components/modals/payer-employe-dialog/payer-employe-dialog.component';
 
 
 @NgModule({
@@ -87,6 +90,9 @@ import {MatAccordion, MatExpansionModule} from '@angular/material/expansion';
     AfficherBilanComponent,
     EntreesComponent,
     SortiesComponent,
+    PayerMensualiteDialogComponent,
+    ReinscriptionDialogComponent,
+    PayerEmployeDialogComponent,
   ],
   imports: [
     BrowserModule,

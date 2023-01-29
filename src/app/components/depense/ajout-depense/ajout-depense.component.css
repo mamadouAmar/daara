@@ -25,3 +25,20 @@
 .col:last-child {
   margin-right: 0;
 }
+
+@media screen and ((max-width: 600px)) {
+  .row {
+    flex-direction: column;
+  }
+  div.col {
+    width: 100%;
+  }
+}
+
+/* mat-card {
+  padding: Opx;
+} */
+
+/* .mat-dialog {
+  padding: Opx !important;
+} */

@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -25,12 +26,13 @@ export class ListDepenseComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['depenseId', 'dateDepense', 'somme', 'depense', 'action'];
 
-  filtrerFormGroup: any;
+  filtrerFormGroup! : FormGroup;
 
   constructor(private depenseService : DepenseService,
       private route : ActivatedRoute,
       private router : Router,
       private location : Location,
+      private fb : FormBuilder,
       private dialog: MatDialog) {
     this.dataSource = new ListDepenseDataSource(depenseService);
   }
@@ -53,6 +55,9 @@ export class ListDepenseComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    this.filtrerFormGroup = this.fb.group({
+      recherche : this.fb.control(null)
+    });
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;

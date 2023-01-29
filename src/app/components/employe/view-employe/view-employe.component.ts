@@ -1,9 +1,11 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employe } from 'src/app/models/employe';
 import { EmployeService } from 'src/app/service/employe.service';
+import { PayerEmployeDialogComponent } from '../../modals/payer-employe-dialog/payer-employe-dialog.component';
 
 @Component({
   selector: 'app-view-employe',
@@ -26,7 +28,8 @@ export class ViewEmployeComponent implements OnInit {
     private route : ActivatedRoute,
     private location : Location,
     private router : Router, 
-    private fb : FormBuilder) { }
+    private fb : FormBuilder,
+    public dialog : MatDialog) { }
 
   ngOnInit(): void {
     this.employe = new Employe();
@@ -48,10 +51,6 @@ export class ViewEmployeComponent implements OnInit {
   modifierEmploye(){
     this.modifier = true;
     this.employeFormGroup.enable();
-  }
-
-  payerSalaire(){
-
   }
 
   enregistrer(){
@@ -78,6 +77,19 @@ export class ViewEmployeComponent implements OnInit {
 
   retour(){
     this.location.back();
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(
+      PayerEmployeDialogComponent, {
+        data : this.idEmploye
+      }
+    )
+
+    dialogRef.afterClosed()
+      .subscribe(
+
+      )
   }
 
 }

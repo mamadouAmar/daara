@@ -1,11 +1,14 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Eleve } from 'src/app/models/eleve';
 import { Niveau } from 'src/app/models/niveau';
 import { EleveService } from 'src/app/service/eleve.service';
 import { NiveauService } from 'src/app/service/niveau.service';
+import { PayerMensualiteDialogComponent } from '../../modals/payer-mensualite-dialog/payer-mensualite-dialog.component';
+import { ReinscriptionDialogComponent } from '../../modals/reinscription-dialog/reinscription-dialog.component';
 
 @Component({
   selector: 'app-view-eleve',
@@ -29,7 +32,8 @@ export class ViewEleveComponent implements OnInit {
     private route : ActivatedRoute,
     private location : Location,
     private router : Router,
-    private fb : FormBuilder) {
+    private fb : FormBuilder,
+    public dialog : MatDialog) {
     this.eleve = new Eleve();
 
     this.idEleve = this.route.snapshot.params['id'];
@@ -85,7 +89,16 @@ export class ViewEleveComponent implements OnInit {
   }
 
   payerMensualite(){
+    const dialogRef = this.dialog.open(
+      PayerMensualiteDialogComponent, {
+        data : this.idEleve
+      }
+    )
 
+    dialogRef.afterClosed()
+      .subscribe(
+
+      )
   }
 
   supprimerEleve(){
@@ -99,7 +112,16 @@ export class ViewEleveComponent implements OnInit {
   }
 
   reinscrireEleve(){
+    const dialogRef = this.dialog.open(
+      ReinscriptionDialogComponent, {
+        data : this.idEleve
+      }
+    )
 
+    dialogRef.afterClosed()
+      .subscribe(
+
+      )
   }
 
   retour(){

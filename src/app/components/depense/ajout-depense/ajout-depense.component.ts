@@ -1,7 +1,5 @@
-import { Location } from '@angular/common';
-import { Component } from '@angular/core';
-import { UntypedFormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Depense } from 'src/app/models/depense';
 import { DepenseService } from 'src/app/service/depense.service';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -11,26 +9,28 @@ import { MatDialogRef } from '@angular/material/dialog';
   templateUrl: './ajout-depense.component.html',
   styleUrls: ['./ajout-depense.component.css']
 })
-export class AjoutDepenseComponent {
+export class AjoutDepenseComponent implements OnInit{
 
   depense! : Depense;
-  dateActuel = new Date().toDateString()
+  dateActuel = new Date().toDateString();
   
-  ajoutDepenseForm = this.fb.group({
-    descDepense: [null, Validators.required],
-    somme: [null, Validators.required],
-    dateDepense: [this.dateActuel],
-  });
+  ajoutDepenseForm! : FormGroup;
 
   
 
   constructor(
     public dialogRef : MatDialogRef<AjoutDepenseComponent>,
-    private fb: UntypedFormBuilder,
-      private route : ActivatedRoute,
-      private router : Router,
-      private location : Location,
-      private depenseService : DepenseService) {}
+    private fb: FormBuilder,
+    private depenseService : DepenseService) {}
+  
+  
+  ngOnInit(): void {
+    this.ajoutDepenseForm = this.fb.group({
+      descDepense: this.fb.control(null, [Validators.required]),
+      somme: this.fb.control(null, [Validators.required]),
+      dateDepense: this.fb.control(this.dateActuel, [Validators.required]),
+    });
+  }
 
   ajouterDepense(){
     if(this.ajoutDepenseForm.valid){
@@ -44,13 +44,14 @@ export class AjoutDepenseComponent {
           (data) => {
             console.log(data)
           }
-        )
+      )
+      this.dialogRef.close();
     }
     
   }
 
   retour(){
-    this.location.back();
+    this.dialogRef.close();
   }
 
   reset(){

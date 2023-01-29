@@ -76,9 +76,9 @@
     </div>
     <mat-divider></mat-divider>
     <mat-card-actions class="buttons">
-        <button mat-raised-button *ngIf="!this.modifier" mat-button (click)="modifierEleve()">Modifier</button>
-        <button mat-raised-button *ngIf="this.modifier" mat-button (click)="enregistrer()">Enregistrer</button>
-        <button mat-raised-button *ngIf="!this.modifier" mat-button (click)="supprimerEleve()">Supprimer</button>
+        <button mat-raised-button *ngIf="!this.modifier" (click)="modifierEleve()">Modifier</button>
+        <button mat-raised-button *ngIf="this.modifier" (click)="enregistrer()">Enregistrer</button>
+        <button mat-raised-button color="danger" *ngIf="!this.modifier" (click)="supprimerEleve()">Supprimer</button>
         <button mat-raised-button (click)="retour()">retour</button>
     </mat-card-actions>
 </mat-card>
