@@ -7,8 +7,16 @@
     <br>
     <!-- Entrees -->
     <mat-divider></mat-divider>
-    <br>
 
+    <br>
+    <div class="row">
+        <div class="col"> total entrees :  {{bilan?.totalEntre}} </div>
+        <div class="col"> total sorties :  {{bilan?.totalSorties}} </div>
+        <div class="col"> total bilan :  {{bilan?.gain}} </div>
+    </div>
+    <br>
+    <mat-divider></mat-divider>
+    <br>
     <mat-card-content>
         <div class="mat-elevation-z3 row">
             <table mat-table class="full-with-table col" [dataSource]="this.entreeDataSource">
@@ -27,15 +35,6 @@
                 <tr mat-header-row *matHeaderRowDef="entreesDisplayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: entreesDisplayedColumns"></tr>
             </table>
-        </div>
-        <br>
-        <mat-divider></mat-divider>
-
-        <br>
-        <div class="row">
-            <div class="col"> total entrees :  {{bilan.totalEntre}} </div>
-            <div class="col"> total sorties :  {{bilan.totalSorties}} </div>
-            <div class="col"> total bilan :  {{bilan.gain}} </div>
         </div>
         <br>
         <mat-divider></mat-divider>
