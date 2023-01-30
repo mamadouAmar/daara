@@ -41,9 +41,6 @@ export class ListCalculBilanComponent implements OnInit {
 
   onClickSupprimer(row: any) {
     throw new Error('Method not implemented.');
-    }
-    onClickModifier(row: any) {
-    throw new Error('Method not implemented.');
-    }
+  }
 
 }
