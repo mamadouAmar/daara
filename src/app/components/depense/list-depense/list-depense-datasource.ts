@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { Depense } from 'src/app/models/depense';
 import { DepenseService } from 'src/app/service/depense.service';
+import { TestService } from 'src/app/service/testService/test.service';
 
 // TODO: Replace this with your own data model type
 // export interface ListDepenseItem {
@@ -46,9 +47,10 @@ export class ListDepenseDataSource extends DataSource<Depense> {
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 
-  constructor(private depenseService : DepenseService) {
+  constructor(private depenseService : DepenseService,
+    testService : TestService) {
     super();
-    depenseService.getDepenseByMonth()
+    testService.getDepenses()
       .subscribe(
         (depenses) => {
           this.data = depenses;

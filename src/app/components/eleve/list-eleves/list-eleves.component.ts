@@ -7,6 +7,7 @@ import { MatTable } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Eleve } from 'src/app/models/eleve';
 import { EleveService } from 'src/app/service/eleve.service';
+import { TestService } from 'src/app/service/testService/test.service';
 import { ListElevesDataSource } from './list-eleves-datasource';
 
 @Component({
@@ -27,11 +28,12 @@ export class ListElevesComponent implements AfterViewInit {
   displayedColumns = ['eleveId', 'nom', 'prenom', 'dateNaissance', 'classe', 'action'];
 
   constructor(private eleveService : EleveService,
+    private testService : TestService,
       private location : Location,
       private route : ActivatedRoute,
       private router : Router,
       private fb : FormBuilder) {
-    this.dataSource = new ListElevesDataSource(eleveService);
+    this.dataSource = new ListElevesDataSource(eleveService, testService);
     this.rechercheFormGroup = this.fb.group({
       recherche : this.fb.control(null)
     });

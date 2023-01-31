@@ -7,6 +7,7 @@ import { MatTable } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employe } from 'src/app/models/employe';
 import { EmployeService } from 'src/app/service/employe.service';
+import { TestService } from 'src/app/service/testService/test.service';
 import { ListEmployesDataSource } from './list-employes-datasource';
 
 @Component({
@@ -26,11 +27,12 @@ rechercheFormGroup!: FormGroup;
   displayedColumns = ['interneId', 'nom', 'prenom', 'dateDebut', 'profession', 'actions'];
 
   constructor(private employeService : EmployeService,
+    private testService : TestService,
     private route : ActivatedRoute,
     private router : Router,
     private location : Location,
     private fb : FormBuilder) {
-    this.dataSource = new ListEmployesDataSource(employeService);
+    this.dataSource = new ListEmployesDataSource(employeService, testService);
     this.rechercheFormGroup = this.fb.group({
       recherche : this.fb.control(null)
     });

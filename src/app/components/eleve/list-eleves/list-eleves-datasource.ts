@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { Eleve } from 'src/app/models/eleve';
 import { EleveService } from 'src/app/service/eleve.service';
+import { TestService } from 'src/app/service/testService/test.service';
 
 // TODO: Replace this with your own data model type
 // export interface ListElevesItem {
@@ -46,9 +47,10 @@ export class ListElevesDataSource extends DataSource<Eleve> {
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 
-  constructor(private eleveService : EleveService) {
+  constructor(private eleveService : EleveService,
+    private testService : TestService) {
     super();
-    eleveService.getAll().subscribe(
+    this.testService.getEleves().subscribe(
       (eleves) => {
         this.data = eleves;
       }

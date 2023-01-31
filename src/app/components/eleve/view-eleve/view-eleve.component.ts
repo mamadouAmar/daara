@@ -7,6 +7,7 @@ import { Eleve } from 'src/app/models/eleve';
 import { Niveau } from 'src/app/models/niveau';
 import { EleveService } from 'src/app/service/eleve.service';
 import { NiveauService } from 'src/app/service/niveau.service';
+import { TestService } from 'src/app/service/testService/test.service';
 import { PayerMensualiteDialogComponent } from '../../modals/payer-mensualite-dialog/payer-mensualite-dialog.component';
 import { ReinscriptionDialogComponent } from '../../modals/reinscription-dialog/reinscription-dialog.component';
 
@@ -33,11 +34,12 @@ export class ViewEleveComponent implements OnInit {
     private location : Location,
     private router : Router,
     private fb : FormBuilder,
-    public dialog : MatDialog) {
+    public dialog : MatDialog, 
+    private testService : TestService) {
     this.eleve = new Eleve();
 
     this.idEleve = this.route.snapshot.params['id'];
-    this.eleveService.getOne(this.idEleve)
+    this.testService.getEleve(this.idEleve)
       .subscribe(
         (eleve) => {
           this.eleve = eleve;

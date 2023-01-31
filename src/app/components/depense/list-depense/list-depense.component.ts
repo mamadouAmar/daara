@@ -8,6 +8,7 @@ import { MatTable } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Depense } from 'src/app/models/depense';
 import { DepenseService } from 'src/app/service/depense.service';
+import { TestService } from 'src/app/service/testService/test.service';
 import { AjoutDepenseComponent } from '../ajout-depense/ajout-depense.component';
 import { ViewDepenseComponent } from '../view-depense/view-depense.component';
 import { ListDepenseDataSource } from './list-depense-datasource';
@@ -29,12 +30,13 @@ export class ListDepenseComponent implements AfterViewInit {
   filtrerFormGroup! : FormGroup;
 
   constructor(private depenseService : DepenseService,
+    private testService : TestService,
       private route : ActivatedRoute,
       private router : Router,
       private location : Location,
       private fb : FormBuilder,
       private dialog: MatDialog) {
-    this.dataSource = new ListDepenseDataSource(depenseService);
+    this.dataSource = new ListDepenseDataSource(depenseService, testService);
   }
 
   private openDialogForAdd(){
