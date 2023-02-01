@@ -35,8 +35,11 @@ export class ListDepenseComponent implements AfterViewInit {
       private router : Router,
       private location : Location,
       private fb : FormBuilder,
-      private dialog: MatDialog) {
-    this.dataSource = new ListDepenseDataSource(depenseService, testService);
+      private dialog: MatDialog) {    
+    this.filtrerFormGroup = this.fb.group({
+      recherche : this.fb.control(null)
+    });
+
   }
 
   private openDialogForAdd(){
@@ -57,9 +60,7 @@ export class ListDepenseComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.filtrerFormGroup = this.fb.group({
-      recherche : this.fb.control(null)
-    });
+    this.dataSource = new ListDepenseDataSource(this.depenseService, this.testService);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
