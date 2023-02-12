@@ -46,10 +46,10 @@ export class AfficherBilanComponent implements OnInit {
           this.bilan.totalSorties = 0;
           let i:number = 0;
           for (let i of this.bilan?.entrees) {
-            this.bilan.totalEntre += i.somme;
+            this.bilan.totalEntre += i.somme? i.somme : 0;
           }
           for (let i of this.bilan?.sorties) {
-            this.bilan.totalSorties += i.somme;
+            this.bilan.totalSorties += i.somme? i.somme : 0;
           }
           this.bilan.gain = this.bilan.totalEntre-this.bilan.totalSorties;
         }

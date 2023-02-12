@@ -75,7 +75,7 @@ export class AjoutEmployeComponent implements OnInit{
       this.employe.dateNaissance = this.ajouterEmployeForm.controls['dateNaissance'].value;
       this.employe.profession = this.ajouterEmployeForm.controls['profession'].value;
       this.employe.salaire = this.ajouterEmployeForm.controls['salaire'].value;
-      this.employe.classeGeree = this.ajouterEmployeForm.controls['classeGeree'].value;
+      // this.employe.classeGeree = this.ajouterEmployeForm.controls['classeGeree'].value;
       this.employe.dateDebut = new Date();
 
       this.employeService.postOne(this.employe)

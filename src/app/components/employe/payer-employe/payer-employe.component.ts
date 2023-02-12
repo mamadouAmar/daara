@@ -89,10 +89,10 @@ export class PayerEmployeComponent implements OnInit {
       this.paiement = new Paiement();
       this.paiement.annee = this.year;
       this.paiement.mois = this.mois;
-      this.paiement.travailleur = this.paiementEmployeForm.controls['employe'].value;
+      this.paiement.employe = this.paiementEmployeForm.controls['employe'].value;
       if(this.paiementEmployeForm.controls['somme'].value == null 
             || this.paiementEmployeForm.controls['somme'].value == 0){
-        this.paiement.somme = this.paiement.travailleur.salaire
+        this.paiement.somme = this.paiement.employe?.salaire
       }
       else {
         this.paiement.somme = this.paiementEmployeForm.controls['somme'].value;

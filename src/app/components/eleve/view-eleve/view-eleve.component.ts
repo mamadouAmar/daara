@@ -137,7 +137,7 @@ export class ViewEleveComponent implements OnInit {
           console.log(data);
           this.modifier = false;
           this.eleveFormgroup.disable();
-          this.router.navigate([`/eleve/${this.eleve.eleveId}`]);
+          this.router.navigate([`/eleve/${this.eleve.id}`]);
         }
       )
   }
