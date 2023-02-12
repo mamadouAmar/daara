@@ -1,9 +1,15 @@
 export class Entree {
-    public idEntree? : number;
+    public id? : string
+    public date? : Date
+    public sourceEntree? : string
+    public somme? : number
 
     constructor(
-        public dateEntre : Date,
-        public sourceEntree : string,
-        public somme : number
-    ){}
+        obj? : any
+    ){
+        this.id = obj.id
+        this.date = obj.date
+        this.sourceEntree = obj.sourceEntree
+        this.somme = obj.somme
+    }
 }
