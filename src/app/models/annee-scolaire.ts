@@ -9,7 +9,7 @@ export class AnneeScolaire {
     dateFin? : number
     etatAnneeScolaire? : EtatAnneeScolaire
 
-    constructor(obj : any = null) {
+    constructor(obj? : any) {
         this.id = obj.id
         this.anneeDebut = obj.anneeDebut
         this.anneeFin = obj.anneeFin

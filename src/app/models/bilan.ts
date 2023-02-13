@@ -13,7 +13,7 @@ export class Bilan {
     public sorties : Sortie[] = [];
 
     constructor(
-        obj : any = null
+        obj? : any
     ){
         this.id = obj.id
         this.dateBilan = obj.dateBilan

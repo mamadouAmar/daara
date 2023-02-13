@@ -76,7 +76,7 @@ export class PayerMensualiteDialogComponent implements OnInit {
       this.mensualite.mois = this.mois;
       this.mensualite.eleve = this.eleve
       if(this.mensualiteForm.controls['somme'].value == null || this.mensualiteForm.controls['somme'].value == 0){
-        this.mensualite.somme = this.mensualite.eleve.classe.mensualite;
+        this.mensualite.somme = this.mensualite.eleve.classe?.mensualite;
       }
       else{
         this.mensualite.somme = this.mensualiteForm.controls['somme'].value;

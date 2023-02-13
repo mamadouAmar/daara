@@ -5,7 +5,7 @@ export class Depense {
     public depense! : string;
     public dateDepense!: Date;
 
-    constructor(obj : any = null)
+    constructor(obj? : any)
     {
         this.id = obj.id
         this.somme = obj.somme
