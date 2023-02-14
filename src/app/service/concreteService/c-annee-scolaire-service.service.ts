@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AnneeScolaire } from 'src/app/models/annee-scolaire';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -13,8 +12,7 @@ export class CAnneeScolaireServiceService {
 
   constructor(private http:HttpClient) { }
 
-  public commencerNouvelleAnneeScolaire(annee_scolaire : AnneeScolaire) : Observable<AnneeScolaire>
-  {
-    return this.http.post<AnneeScolaire>(`${this.apiUrl}`, annee_scolaire)
+  public commencer_nouvelle_annee(objet : any) {
+    
   }
 }

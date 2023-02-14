@@ -63,19 +63,18 @@ export class InscrireEleveComponent implements OnInit {
   ngOnInit(): void {
     this.inscriptionFormGroup = this.fb.group(
       {
-        prenom : this.fb.control('', [Validators.required]),
-        nom : this.fb.control('', [Validators.required]),
-        dateNaissance : this.fb.control('', [Validators.required]),
-        lieuDeNaissance : this.fb.control('', [Validators.required]),
-        adresse : this.fb.control('', [Validators.required]),
-        prenomPere : this.fb.control('', [Validators.required]),
-        prenomNomMere : this.fb.control('', [Validators.required]),
-        numeroTelephone : this.fb.control('', [Validators.required]),
-        aSavoir : this.fb.control('', [Validators.required]),
-        dateDebut : this.fb.control(new Date(), [Validators.required]),
-        classe : this.fb.control(''),
+        prenom : this.fb.control(null, [Validators.required]),
+        nom : this.fb.control(null, [Validators.required]),
+        dateNaissance : this.fb.control(null, [Validators.required]),
+        lieuDeNaissance : this.fb.control(null, [Validators.required]),
+        adresse : this.fb.control(null, [Validators.required]),
+        prenomPere : this.fb.control(null, [Validators.required]),
+        prenomNomMere : this.fb.control(null, [Validators.required]),
+        numeroTelephone : this.fb.control(null, [Validators.required]),
+        aSavoir : this.fb.control(null, [Validators.required]),
+        classe : this.fb.control(null),
         anneeInscription : this.fb.control(this.year, [Validators.required]), 
-        somme : this.fb.control(''),
+        somme : this.fb.control(null),
       }
     );
   }
@@ -83,19 +82,7 @@ export class InscrireEleveComponent implements OnInit {
 
   inscrireEleve(){
     if(this.inscriptionFormGroup.valid){
-      this.nouvelEleve = new Eleve(
-        // {
-        //   prenom : this.inscriptionFormGroup.controls['prenom'].value,
-        //   nom : this.inscriptionFormGroup.controls['nom'].value,
-        //   dateNaissance: this.inscriptionFormGroup.controls['dateNaissance'].value,
-        //   dateDebut: this.inscriptionFormGroup.controls['dateDebut'].value,
-        //   prenomPere: this.inscriptionFormGroup.controls['prenomPere'].value,
-        //   prenomNomMere: this.inscriptionFormGroup.controls['prenomNomMere'].value,
-        //   adresse: this.inscriptionFormGroup.controls['adresse'].value,
-        //   aSavoir: this.inscriptionFormGroup.controls['aSavoir'].value,
-        //   lieuDeNaissance: this.inscriptionFormGroup.controls['lieuDeNaissance'].value,
-        // }
-      );
+      this.nouvelEleve = new Eleve();
       this.nouvelEleve.prenom = this.inscriptionFormGroup.controls['prenom'].value;
       this.nouvelEleve.nom = this.inscriptionFormGroup.controls['nom'].value;
       this.nouvelEleve.dateNaissance = this.inscriptionFormGroup.controls['dateNaissance'].value;
@@ -103,15 +90,8 @@ export class InscrireEleveComponent implements OnInit {
       this.nouvelEleve.prenomNomMere = this.inscriptionFormGroup.controls['prenomNomMere'].value;
       this.nouvelEleve.addresse = this.inscriptionFormGroup.controls['adresse'].value;
       this.nouvelEleve.aSavoir = this.inscriptionFormGroup.controls['aSavoir'].value;
-      
+      this.nouvelEleve.dateDebut = new Date()
       this.inscription = new Inscription(
-        // {
-        //   anneeInscription: this.inscriptionFormGroup.get('anneeInscription')?.value,
-        //   somme: this.inscriptionFormGroup.controls['somme'].value,
-        //   classe: this.inscriptionFormGroup.controls['classe'].value,
-        //   eleve: this.nouvelEleve,
-        //   dateInscription: new Date()
-        // }
       );
       this.inscription.anneeInscription = this.inscriptionFormGroup.get('anneeInscription')?.value
       this.inscription.somme = this.inscriptionFormGroup.controls['somme'].value;
@@ -119,12 +99,12 @@ export class InscrireEleveComponent implements OnInit {
       this.inscription.eleve = this.nouvelEleve;
       this.inscription.dateInscription = new Date();
       console.log(this.inscription)
-
       this.c_eleveService.inscrireEleve(this.inscription).subscribe(
         (data) => {
           console.log(data);
         }
       )
+      this.inscriptionFormGroup.reset()
     }
   }
 
@@ -136,13 +116,4 @@ export class InscrireEleveComponent implements OnInit {
     this.inscriptionFormGroup.reset()
   }
 
-  // c_inscrireEleve(inscription : Inscription){
-  //   this.c_eleveService.inscrireEleve(inscription)
-  //     .subscribe(
-  //       (data) => {
-  //         this.inscription = new Inscription(data);
-  //         console.log(inscription)
-  //       }
-  //     )
-  // }
 }
